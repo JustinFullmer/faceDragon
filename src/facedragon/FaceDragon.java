@@ -7,6 +7,7 @@ package facedragon;
 
 import byui.cit260.faceDragon.model.Player;
 import byui.cit260.faceDragon.model.Game;
+import byui.cit260.faceDragon.model.Map;
 /**
  *
  * @author Justin
@@ -33,6 +34,12 @@ public class FaceDragon {
     String gameInfo = gameOne.toString();
     System.out.println(gameInfo);
     
+    //instance of Map class to test it
+    Map mapOne = new Map();
+    mapOne.setColumnCount(5);
+    mapOne.setRowCount(3);
+    String mapInfo = mapOne.toString();
+    System.out.println(mapInfo);
     }
     
 }
