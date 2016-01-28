@@ -6,7 +6,7 @@
 package facedragon;
 
 import byui.cit260.faceDragon.model.Player;
-
+import byui.cit260.faceDragon.model.Game;
 /**
  *
  * @author Justin
@@ -16,6 +16,7 @@ public class FaceDragon {
     /**
      * @param args the command line arguments
      */
+    //instance of Player class to test it
     public static void main(String[] args) {
     Player playerOne = new Player();
     
@@ -23,6 +24,15 @@ public class FaceDragon {
     
     String playerInfo = playerOne.toString();
     System.out.println(playerInfo);
+    
+    //instance of Game class to test it
+    Game gameOne = new Game();
+    
+    gameOne.setDescription("Description of Game");
+    
+    String gameInfo = gameOne.toString();
+    System.out.println(gameInfo);
+    
     }
     
 }
