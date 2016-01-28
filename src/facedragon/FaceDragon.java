@@ -6,6 +6,7 @@
 package facedragon;
 
 import byui.cit260.faceDragon.model.Player;
+import byui.cit260.faceDragon.model.Weapon;
 
 /**
  *
@@ -23,6 +24,11 @@ public class FaceDragon {
     
     String playerInfo = playerOne.toString();
     System.out.println(playerInfo);
+    
+    Weapon weaponOne = new Weapon();
+    
+    String weaponInfo = weaponOne.toString();
+    System.out.println(weaponInfo);
     }
     
 }
