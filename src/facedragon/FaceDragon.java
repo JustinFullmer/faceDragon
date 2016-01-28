@@ -21,7 +21,7 @@ public class FaceDragon {
     
     playerOne.setName("William Farmer");
     
-    String playerInfo =playerOne.toString();
+    String playerInfo = playerOne.toString();
     System.out.println(playerInfo);
     }
     
