@@ -7,6 +7,8 @@ package facedragon;
 
 import byui.cit260.faceDragon.model.Characters;
 import byui.cit260.faceDragon.model.Game;
+import byui.cit260.faceDragon.model.Interaction;
+import byui.cit260.faceDragon.model.Scene;
 
 import byui.cit260.faceDragon.model.Player;
 import byui.cit260.faceDragon.model.Weapon;
@@ -70,6 +72,17 @@ public class FaceDragon {
     String charactersInfo = charactersOne.toString();
     System.out.println(charactersInfo);
     
+        //instance of Interaction class to test it
+    Interaction interactionOne = new Interaction();
+    interactionOne.setPrompt("prompt");
+    String interactionInfo = interactionOne.toString();
+    System.out.println(interactionInfo);
+    //instance of Scene class to test it
+    Scene sceneOne = new Scene();
+    sceneOne.setType("Scene Type");
+    String sceneInfo = sceneOne.toString();
+    System.out.println(sceneInfo);
+
     }
     
 }
