@@ -7,21 +7,17 @@ package byui.cit260.faceDragon.model;
 
 import java.io.Serializable;
 import java.util.Objects;
+
 /**
  *
- * @author breecarrick
+ * @author Justin
  */
 public class Game implements Serializable{
-    //class instance variables
     private String description;
     private String progress;
-    
-    //constructor function
 
     public Game() {
     }
-    
-    //getter and setter classes
 
     public String getDescription() {
         return description;
@@ -38,19 +34,26 @@ public class Game implements Serializable{
     public void setProgress(String progress) {
         this.progress = progress;
     }
-    
-    //equals and hashcode
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 47 * hash + Objects.hashCode(this.description);
-        hash = 47 * hash + Objects.hashCode(this.progress);
+        hash = 23 * hash + Objects.hashCode(this.description);
+        hash = 23 * hash + Objects.hashCode(this.progress);
         return hash;
     }
 
     @Override
+    public String toString() {
+        return "Game{" + "description=" + description + ", progress=" + progress + '}';
+    }
+    
+
+    @Override
     public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
         if (obj == null) {
             return false;
         }
@@ -61,17 +64,6 @@ public class Game implements Serializable{
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
-        if (!Objects.equals(this.progress, other.progress)) {
-            return false;
-        }
-        return true;
-    }
-    
-    //tostring function
-
-    @Override
-    public String toString() {
-        return "Game{" + "description=" + description + ", progress=" + progress + '}';
-    }
-    
+        return Objects.equals(this.progress, other.progress);
+    } 
 }
