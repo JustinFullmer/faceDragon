@@ -16,6 +16,7 @@ import byui.cit260.faceDragon.model.Weapon;
 
 import byui.cit260.faceDragon.model.Location;
 import byui.cit260.faceDragon.model.Map;
+import byui.cit260.faceDragon.view.StartProgramView;
 /**
  *
  * @author Justin
@@ -27,6 +28,10 @@ public class FaceDragon {
      */
     //instance of Player class to test it
     public static void main(String[] args) {
+    //test start program view
+    StartProgramView startProgramView = new StartProgramView();
+    startProgramView.displayStartProgramView();
+  
     Player playerOne = new Player();
     
     playerOne.setName("William Farmer");
