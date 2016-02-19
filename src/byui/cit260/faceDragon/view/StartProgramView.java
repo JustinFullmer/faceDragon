@@ -5,6 +5,8 @@
  */
 package byui.cit260.faceDragon.view;
 
+import byui.cit260.faceDragon.control.GameControl;
+import byui.cit260.faceDragon.model.Player;
 import java.util.Scanner;
 
 /**
@@ -90,7 +92,35 @@ public class StartProgramView {
         return value;
     }
         private boolean doAction(String playersName) {
-        System.out.println("\n*** doAction() called ***");
-        return true;
+            if(playersName.length() < 2) {
+                System.out.println("\nInvalid players name: "
+                                + "The name must be greater than one character in length");
+                return false;
+            }
+            //call createPlayer() control function
+            Player player = GameControl.createPlayer(playersName);
+            
+            if (player == null) { // if unsuccessful
+                System.out.println("\nError creating the player.");
+                return false;
+            }
+            
+            //display next view
+            this.displayNextView(player);
+            
+            return true; //success
+        }
+
+    private void displayNextView(Player player) {
+        //display a custom welcome message
+        System.out.println("\n====================================="
+                          +"\n Welcome to the game " + player.getName()
+                          +"\n We hope you have a lot of fun!"
+                          +"\n=====================================");
+        //create MainMenuWiew object
+        MainMenuView mainMenuView= new MainMenuView();
+        
+        //display the main menu view
+        mainMenuView.displayMainMenuView();
     }
 }
