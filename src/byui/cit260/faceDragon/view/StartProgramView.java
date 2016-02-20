@@ -98,7 +98,7 @@ public class StartProgramView {
                 return false;
             }
             //call createPlayer() control function
-            Player player = GameControl.createPlayer(playersName);
+            boolean player = GameControl.createPlayer(playersName);
             
             if (player == null) { // if unsuccessful
                 System.out.println("\nError creating the player.");
@@ -122,5 +122,9 @@ public class StartProgramView {
         
         //display the main menu view
         mainMenuView.displayMainMenuView();
+    }
+
+    private void displayNextView(boolean player) {
+        System.out.println("\n ***  function called ***");
     }
 }

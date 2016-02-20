@@ -19,6 +19,11 @@ public class Scene implements Serializable{
     //constructor function
     public Scene() {
     }
+
+    public Scene(String description, String type) {
+        this.description = description;
+        this.type = type;
+    }
     
     //getter and setter functions
     public String getDescription() {
