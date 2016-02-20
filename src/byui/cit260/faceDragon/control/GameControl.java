@@ -6,6 +6,7 @@
 package byui.cit260.faceDragon.control;
 
 import byui.cit260.faceDragon.model.Player;
+import facedragon.FaceDragon;
 
 /**
  *
@@ -17,8 +18,15 @@ public class GameControl {
         System.out.println("\n *** createNewGame() stub function called ***");
     }   
 
-    public static boolean createPlayer(String playersName) {
-        System.out.println("\n *** createPlayer() stub function called ***");
-        return true;
+    public static Player createPlayer(String name) {
+        if (name == null) {
+            return null;
+        }
+        Player player = new Player();
+        player.setName(name);
+        
+        FaceDragon.setPlayer(player);
+        
+        return player;
     }
 }

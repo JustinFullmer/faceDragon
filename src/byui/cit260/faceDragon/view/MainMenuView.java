@@ -15,9 +15,9 @@ import java.util.Scanner;
  */
 public class MainMenuView {
     private String menu;
-    private String promptMessage;
+    //private String promptMessage;
 
-    public MainMenuView(String menu) {
+    public MainMenuView(/*String menu*/) {
         this.menu = "\n"
                 +"\n----------------------"
                 +"\n| Menu               |"
@@ -30,13 +30,13 @@ public class MainMenuView {
                 +"\n----------------------";
     }      
 
-    MainMenuView() {
-        System.out.println("\n mainMenuView function called");
-    }
+    /*MainMenuView() {
+        this.menu;
+    }*/
     public void displayMainMenuView() {
         boolean done = false;
         do {
-            String menuOption = this.menuOption();
+            String menuOption = this.getMenuOption();
             if (menuOption.toUpperCase().equals("Q"))
                 return;
             done = this.doAction(menuOption);
@@ -44,14 +44,14 @@ public class MainMenuView {
     
     }
 
-    private String menuOption() {
+    private String getMenuOption() {
         Scanner keyboard = new Scanner(System.in);
         String value = "";
         boolean valid = false;
         
         while (!valid) {
         
-            System.out.println("\n" + this.promptMessage);
+            System.out.println("\n" + this.menu);
             
             value= keyboard.nextLine();
             value= value.trim();
@@ -105,7 +105,11 @@ public class MainMenuView {
     }
 
     private void helpMenu() {
-        System.out.println("\n ***helpMenu function called***");    
+        //create help menu view object
+        HelpMenuView helpMenuView = new HelpMenuView();
+        //display the help menu view
+        helpMenuView.displayHelpMenuView();
+        
     }
     }
-    
+
