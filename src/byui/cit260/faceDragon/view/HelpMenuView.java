@@ -80,7 +80,8 @@ public class HelpMenuView {
     }
 
     private void gameControls() {
-        System.out.println("\n ***gameControls function called***");    
+        GameControlView gameControlView = new GameControlView();
+        gameControlView.displayGameControlView();
     }
 
     private void mainMenu() {
