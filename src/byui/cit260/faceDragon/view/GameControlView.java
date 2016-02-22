@@ -109,7 +109,7 @@ public class GameControlView {
 
     private void moveLocation() {
         MovingLocationsView movingLocations = new MovingLocationsView();
-        movingLocations.display();
+        movingLocations.displayMovingLocationsView();
     }
 
     private void viewMap() {
