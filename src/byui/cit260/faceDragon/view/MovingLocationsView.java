@@ -97,18 +97,18 @@ public class MovingLocationsView {
         System.out.println("\n ***south function called***");    
     }
     private void east() {
-        System.out.println("\n ***north function called***");    
+        System.out.println("\n ***east function called***");    
     }
     private void west() {
-        System.out.println("\n ***south function called***");    
+        System.out.println("\n ***west function called***");    
     }
     private void farm() {
-        System.out.println("\n ***south function called***");    
+        System.out.println("\n ***farm function called***");    
     }
     private void town() {
-        System.out.println("\n ***north function called***");    
+        System.out.println("\n ***town function called***");    
     }
     private void savedLocations() {
-        System.out.println("\n ***south function called***");    
+        System.out.println("\n ***savedLocations function called***");    
     }
 }
