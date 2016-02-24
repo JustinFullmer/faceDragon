@@ -16,7 +16,7 @@ public class Characters implements Serializable{
     private String description;
     private String name;
     private double strength;
-
+    private double experience;
     public Characters() {
     }
     
@@ -46,27 +46,26 @@ public class Characters implements Serializable{
         this.strength = strength;
     }
 
+    public double getExperience() {
+        return experience;
+    }
+
+    public void setExperience(double experience) {
+        this.experience = experience;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 67 * hash + Objects.hashCode(this.description);
-        hash = 67 * hash + Objects.hashCode(this.name);
-        hash = 67 * hash + (int) (Double.doubleToLongBits(this.strength) ^ (Double.doubleToLongBits(this.strength) >>> 32));
+        int hash = 3;
+        hash = 83 * hash + Objects.hashCode(this.description);
+        hash = 83 * hash + Objects.hashCode(this.name);
+        hash = 83 * hash + (int) (Double.doubleToLongBits(this.strength) ^ (Double.doubleToLongBits(this.strength) >>> 32));
+        hash = 83 * hash + (int) (Double.doubleToLongBits(this.experience) ^ (Double.doubleToLongBits(this.experience) >>> 32));
         return hash;
     }
 
     @Override
-    public String toString() {
-        return "Characters{" + "description=" + description + ", name=" + name + ", strength=" + strength + '}';
-    }
-    
-    
-
-    @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
         if (obj == null) {
             return false;
         }
@@ -74,17 +73,29 @@ public class Characters implements Serializable{
             return false;
         }
         final Characters other = (Characters) obj;
-        if (Double.doubleToLongBits(this.strength) != Double.doubleToLongBits(other.strength)) {
-            return false;
-        }
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
+        if (Double.doubleToLongBits(this.strength) != Double.doubleToLongBits(other.strength)) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.experience) != Double.doubleToLongBits(other.experience)) {
+            return false;
+        }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Characters{" + "description=" + description + ", name=" + name + ", strength=" + strength + ", experience=" + experience + '}';
+    }
+    
+    
+
+    
     
     
     
