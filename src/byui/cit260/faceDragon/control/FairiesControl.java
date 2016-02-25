@@ -5,14 +5,16 @@
  */
 package byui.cit260.faceDragon.control;
 
+import byui.cit260.faceDragon.model.Characters;
+
 /**
  *
  * @author breecarrick
  */
 public class FairiesControl {
-    public double fairyExperience(double currentExperience, double userNumber) {
+    public static double fairyExperience(Characters character, double userNumber) {
 
-        if (currentExperience < 0) {
+        if (character == null) {
             return -444;
         }
         if (userNumber > 3) {
@@ -23,8 +25,11 @@ public class FairiesControl {
         }
 
         //Calculate the experience from meeting with the fairies
+        double currentExperience = character.getExperience();
         double experienceFromFairies = currentExperience * userNumber;
         double overallExperience = experienceFromFairies + currentExperience;
+        //update experience
+        character.setExperience(overallExperience);
 
         return overallExperience;
     }

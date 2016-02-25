@@ -53,7 +53,6 @@ public class Location implements Serializable{
     public void setCharacter(Characters character) {
         this.character = character;
     }
-    
     @Override
     public int hashCode() {
         int hash = 7;

@@ -109,6 +109,8 @@ public class MovingLocationsView {
         System.out.println("\n ***town function called***");    
     }
     private void savedLocations() {
-        System.out.println("\n ***savedLocations function called***");    
+        FairiesEncounterView fairiesEncounterView = new FairiesEncounterView();
+        fairiesEncounterView.displayFairiesEncounterView();
+        //System.out.println("\n ***savedLocations function called***");    
     }
 }
