@@ -28,6 +28,7 @@ public class GameMenuView {
                 +"\nC - Collect Item"
                 +"\nD - Drop Item"
                 +"\nH - Help Menu"
+                +"\nA - Attack"
                 +"\nQ - Quit to Main Menu"
                 +"\n----------------------";
     }      
@@ -93,6 +94,9 @@ public class GameMenuView {
             case "D":
                 this.dropItem();
                 break;
+            case "A":
+                this.attack();
+                break;
             case "H":
                 this.helpMenu();
                 break;
@@ -137,5 +141,10 @@ public class GameMenuView {
         HelpMenuView helpMenuView = new HelpMenuView();
         //display the help menu view
         helpMenuView.displayHelpMenuView();   
+    }
+
+    private void attack() {
+        InteractionView interactionView = new InteractionView();
+        interactionView.displayInteractionView();
     }
 }

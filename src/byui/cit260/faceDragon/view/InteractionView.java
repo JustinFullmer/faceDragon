@@ -61,8 +61,9 @@ public class InteractionView {
         return value;
     }
 
+        @SuppressWarnings("null")
     public boolean doAction(String interaction) {
-            String choice = null;
+            String choice = "F";
             /*Temporary to test Interaction View*/
             Characters monster = new Characters();
             monster.setDescription("Troll");
@@ -86,22 +87,22 @@ public class InteractionView {
             
         
         if (choice.toUpperCase().equals("F")) {
-           double result = InteractionControl.attack(player.getStrength(), player.getExperience());
-           boolean win = InteractionControl.doAttack(monster.getStrength(), result);
-
-           if (win == true){
-               System.out.println("\n You WIN!!!");
-               return true;
-           }else {
-               System.out.println("\nYou LOSE HAHAHAHAHA!!!!!");
-               return false;
-           }
-        }else if(choice.toUpperCase().equals("R")){
-            //return to previous location and display message have returned to previous location return true
-            MapControl.returnToPreviousLocation(player);
-            System.out.println("\n You returned to the previous location.");
-            return true;
-        }
+                double result = InteractionControl.attack(player.getStrength(), player.getExperience());
+                boolean win = InteractionControl.doAttack(monster.getStrength(), result);
+                
+                if (win == true){
+                    System.out.println("\n You WIN!!!");
+                    return true;
+                }else {
+                    System.out.println("\nYou LOSE HAHAHAHAHA!!!!!");
+                    return false;
+                }
+        } else if(choice.toUpperCase().equals("R")){
+                //return to previous location and display message have returned to previous location return true
+                MapControl.returnToPreviousLocation(player);
+                System.out.println("\n You returned to the previous location.");
+                return true;
+            }else 
         return false;
         }
 }
