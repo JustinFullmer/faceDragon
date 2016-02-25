@@ -16,6 +16,9 @@ public class Characters implements Serializable{
     private String description;
     private String name;
     private double strength;
+    private double experience;
+    private Location currentLocation;
+    private Location previousLocation;
 
     public Characters() {
     }
@@ -46,21 +49,39 @@ public class Characters implements Serializable{
         this.strength = strength;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 67 * hash + Objects.hashCode(this.description);
-        hash = 67 * hash + Objects.hashCode(this.name);
-        hash = 67 * hash + (int) (Double.doubleToLongBits(this.strength) ^ (Double.doubleToLongBits(this.strength) >>> 32));
-        return hash;
+    public double getExperience() {
+        return experience;
+    }
+
+    public void setExperience(double experience) {
+        this.experience = experience;
+    }
+
+    public Location getCurrentLocation() {
+        return currentLocation;
+    }
+
+    public void setCurrentLocation(Location currentLocation) {
+        this.currentLocation = currentLocation;
+    }
+
+    public Location getPreviousLocation() {
+        return previousLocation;
+    }
+
+    public void setPreviousLocation(Location previousLocation) {
+        this.previousLocation = previousLocation;
     }
 
     @Override
-    public String toString() {
-        return "Characters{" + "description=" + description + ", name=" + name + ", strength=" + strength + '}';
+    public int hashCode() {
+        int hash = 7;
+        hash = 17 * hash + Objects.hashCode(this.description);
+        hash = 17 * hash + Objects.hashCode(this.name);
+        hash = 17 * hash + (int) (Double.doubleToLongBits(this.strength) ^ (Double.doubleToLongBits(this.strength) >>> 32));
+        hash = 17 * hash + (int) (Double.doubleToLongBits(this.experience) ^ (Double.doubleToLongBits(this.experience) >>> 32));
+        return hash;
     }
-    
-    
 
     @Override
     public boolean equals(Object obj) {
@@ -77,6 +98,9 @@ public class Characters implements Serializable{
         if (Double.doubleToLongBits(this.strength) != Double.doubleToLongBits(other.strength)) {
             return false;
         }
+        if (Double.doubleToLongBits(this.experience) != Double.doubleToLongBits(other.experience)) {
+            return false;
+        }
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
@@ -85,7 +109,13 @@ public class Characters implements Serializable{
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Characters{" + "description=" + description + ", name=" + name + ", strength=" + strength + ", experience=" + experience + '}';
+    }
     
+        
     
     
     
