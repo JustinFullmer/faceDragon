@@ -17,6 +17,9 @@ public class Characters implements Serializable{
     private String name;
     private double strength;
     private double experience;
+    private Location currentLocation;
+    private Location previousLocation;
+
     public Characters() {
     }
     
@@ -54,6 +57,23 @@ public class Characters implements Serializable{
         this.experience = experience;
     }
 
+
+    public Location getCurrentLocation() {
+        return currentLocation;
+    }
+
+    public void setCurrentLocation(Location currentLocation) {
+        this.currentLocation = currentLocation;
+    }
+
+    public Location getPreviousLocation() {
+        return previousLocation;
+    }
+
+    public void setPreviousLocation(Location previousLocation) {
+        this.previousLocation = previousLocation;
+    }
+
     @Override
     public int hashCode() {
         int hash = 3;
@@ -62,6 +82,7 @@ public class Characters implements Serializable{
         hash = 83 * hash + (int) (Double.doubleToLongBits(this.strength) ^ (Double.doubleToLongBits(this.strength) >>> 32));
         hash = 83 * hash + (int) (Double.doubleToLongBits(this.experience) ^ (Double.doubleToLongBits(this.experience) >>> 32));
         return hash;
+
     }
 
     @Override
@@ -73,6 +94,7 @@ public class Characters implements Serializable{
             return false;
         }
         final Characters other = (Characters) obj;
+
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
@@ -92,11 +114,9 @@ public class Characters implements Serializable{
     public String toString() {
         return "Characters{" + "description=" + description + ", name=" + name + ", strength=" + strength + ", experience=" + experience + '}';
     }
-    
-    
 
     
-    
+        
     
     
     
