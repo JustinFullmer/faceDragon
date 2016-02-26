@@ -15,6 +15,9 @@ public class FairiesControl {
     public static double fairyExperience(Characters character, double userNumber) {
 
         if (character == null) {
+            return -555;
+        }
+        if (character.getExperience() < 0) {
             return -444;
         }
         if (userNumber > 3) {
