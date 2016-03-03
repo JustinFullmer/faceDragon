@@ -70,7 +70,8 @@ public class GameMenuView extends View {
         }
 
     private void inventoryMenu() {
-        System.out.println("\n *** inventoryMenu() function called ***");
+        InventoryMenuView inventoryMenu = new InventoryMenuView();
+        inventoryMenu.display();
     }
 
     private void moveLocation() {
