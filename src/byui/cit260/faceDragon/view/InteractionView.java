@@ -15,53 +15,21 @@ import java.util.Scanner;
  *
  * @author Justin
  */
-public class InteractionView {
-        private String interaction;
-    //private String promptMessage;
+public class InteractionView extends View{
 
     public InteractionView(/* String interaction*/) {
-        this.interaction = "\n"
+        super("\n"
                 +"\n**********************"
                 +"\n**********************"
                 +"\n You have encoutered a Troll."
                 +"\n What do you want to do?"
                 +"\nF - Fight"
                 +"\nR - Run"
-                +"\n**********************";
-    }
-    public void displayInteractionView() {
-        boolean done = false;
-        do {
-            String interactionOption = this.getInteractionOption();
-            if (interactionOption.toUpperCase().equals("R"))
-                return;
-            done = this.doAction(interaction);
-        } while (!done);   
-    
-    }
-    private String getInteractionOption() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while (!valid) {
-        
-            System.out.println("\n" + this.interaction);
-            
-            value= keyboard.nextLine();
-            value= value.trim();
-            
-            if (value.length() <1) {
-                System.out.println("\nInvalid value: value cannot be blank");
-                continue;
-            }
-            
-            break;
-        }
-        return value;
+                +"\n**********************");
     }
 
         @SuppressWarnings("null")
+        @Override
     public boolean doAction(String interaction) {
             String choice = "F";
             /*Temporary to test Interaction View*/

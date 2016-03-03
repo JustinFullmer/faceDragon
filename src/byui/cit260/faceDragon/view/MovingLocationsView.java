@@ -11,11 +11,10 @@ import java.util.Scanner;
  *
  * @author breecarrick
  */
-public class MovingLocationsView {
-    private String menu;
+public class MovingLocationsView extends View{
     
     public MovingLocationsView() {
-        this.menu = "\n"
+        super("\n"
                    +"\n----------------------------------"
                    +"\n|        Moving Locations        |"
                    +"\n----------------------------------"
@@ -26,39 +25,9 @@ public class MovingLocationsView {
                    +"\nF - Farm"
                    +"\nT - Town/Village"
                    +"\nL - Saved Locations"
-                   +"\n----------------------------------";
+                   +"\n----------------------------------");
     }
-    public void displayMovingLocationsView() {
-        boolean done = false;
-        do {
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q"))
-                return;
-            done = this.doAction(menuOption);
-        } while (!done); 
-    
-    }
-        private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while (!valid) {
-        
-            System.out.println("\n" + this.menu);
-            
-            value= keyboard.nextLine();
-            value= value.trim();
-            
-            if (value.length() <1) {
-                System.out.println("\nInvalid value: value cannot be blank");
-                continue;
-            }
-            
-            break;
-        }
-        return value;
-    }
+        @Override
         public boolean doAction(String choice) {
         choice = choice.toUpperCase();
         
@@ -110,7 +79,7 @@ public class MovingLocationsView {
     }
     private void savedLocations() {
         FairiesEncounterView fairiesEncounterView = new FairiesEncounterView();
-        fairiesEncounterView.displayFairiesEncounterView();
+        fairiesEncounterView.display();
         //System.out.println("\n ***savedLocations function called***");    
     }
 }

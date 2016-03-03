@@ -23,7 +23,7 @@ public class InteractionControl {
             return -2;
         }
 
-        double overallWeaponStrength = weaponStrength * Math.random();
+        double overallWeaponStrength = weaponStrength * (Math.random() + 1);
         double attack = overallWeaponStrength + currentExperience;
 
         return attack;

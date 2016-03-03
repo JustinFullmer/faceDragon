@@ -11,12 +11,10 @@ import java.util.Scanner;
  *
  * @author Justin
  */
-public class GameMenuView {
-    private String menu;
-    //private String promptMessage;
+public class GameMenuView extends View {
 
-    public GameMenuView(/*String menu*/) {
-        this.menu = "\n"
+    public GameMenuView() {
+        super("\n"
                 +"\n----------------------"
                 +"\n| Game Play               |"
                 +"\n----------------------"
@@ -30,45 +28,9 @@ public class GameMenuView {
                 +"\nH - Help Menu"
                 +"\nA - Attack"
                 +"\nQ - Quit to Main Menu"
-                +"\n----------------------";
+                +"\n----------------------");
     }      
-
-    /*MainMenuView() {
-        this.menu;
-    }*/
-    public void displayMenu() {
-        boolean done = false;
-        do {
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q"))
-                return;
-            done = this.doAction(menuOption);
-        } while (!done);   
-    
-    }
-
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while (!valid) {
-        
-            System.out.println("\n" + this.menu);
-            
-            value= keyboard.nextLine();
-            value= value.trim();
-            
-            if (value.length() <1) {
-                System.out.println("\nInvalid value: value cannot be blank");
-                continue;
-            }
-            
-            break;
-        }
-        return value;
-    }
-
+    @Override
     public boolean doAction(String choice) {
         choice = choice.toUpperCase();
         
@@ -113,7 +75,7 @@ public class GameMenuView {
 
     private void moveLocation() {
         MovingLocationsView movingLocations = new MovingLocationsView();
-        movingLocations.displayMovingLocationsView();
+        movingLocations.display();
     }
 
     private void viewMap() {
@@ -140,11 +102,11 @@ public class GameMenuView {
         //create help menu view object
         HelpMenuView helpMenuView = new HelpMenuView();
         //display the help menu view
-        helpMenuView.displayHelpMenuView();   
+        helpMenuView.display();   
     }
 
     private void attack() {
         InteractionView interactionView = new InteractionView();
-        interactionView.displayInteractionView();
+        interactionView.display();
     }
 }

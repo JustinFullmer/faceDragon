@@ -13,12 +13,10 @@ import java.util.Scanner;
  *
  * @author Justin
  */
-public class MainMenuView {
-    private String menu;
-    //private String promptMessage;
+public class MainMenuView extends View{
 
-    public MainMenuView(/*String menu*/) {
-        this.menu = "\n"
+    public MainMenuView() {
+        super("\n"
                 +"\n----------------------"
                 +"\n| Menu               |"
                 +"\n----------------------"
@@ -27,45 +25,9 @@ public class MainMenuView {
                 +"\nR - Restart Saved Game"
                 +"\nH - Help Menu"
                 +"\nQ - Quit Game"
-                +"\n----------------------";
+                +"\n----------------------");
     }      
-
-    /*MainMenuView() {
-        this.menu;
-    }*/
-    public void displayMainMenuView() {
-        boolean done = false;
-        do {
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q"))
-                return;
-            done = this.doAction(menuOption);
-        } while (!done);   
-    
-    }
-
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while (!valid) {
-        
-            System.out.println("\n" + this.menu);
-            
-            value= keyboard.nextLine();
-            value= value.trim();
-            
-            if (value.length() <1) {
-                System.out.println("\nInvalid value: value cannot be blank");
-                continue;
-            }
-            
-            break;
-        }
-        return value;
-    }
-
+    @Override
     public boolean doAction(String choice) {
         choice = choice.toUpperCase();
         
@@ -92,7 +54,7 @@ public class MainMenuView {
     private void startNewGame() {
         GameControl.createNewGame(FaceDragon.getPlayer());
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+        gameMenu.display();
        
     }
 
@@ -108,7 +70,7 @@ public class MainMenuView {
         //create help menu view object
         HelpMenuView helpMenuView = new HelpMenuView();
         //display the help menu view
-        helpMenuView.displayHelpMenuView();
+        helpMenuView.display();
         
     }
     }
