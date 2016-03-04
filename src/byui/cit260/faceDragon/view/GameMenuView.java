@@ -27,6 +27,7 @@ public class GameMenuView extends View {
                 +"\nD - Drop Item"
                 +"\nH - Help Menu"
                 +"\nA - Attack"
+                +"\nB - Mountain Exploration View"
                 +"\nQ - Quit to Main Menu"
                 +"\n----------------------");
     }      
@@ -61,6 +62,9 @@ public class GameMenuView extends View {
                 break;
             case "H":
                 this.helpMenu();
+                break;
+            case "B":
+                this.exploreMountain();
                 break;
             default:
                 System.out.println("\n *** Invalid Selection *** Try Again ***");
@@ -109,5 +113,10 @@ public class GameMenuView extends View {
     private void attack() {
         InteractionView interactionView = new InteractionView();
         interactionView.display();
+    }
+
+    private void exploreMountain() {
+        MountainExplorationView mountainExplorationView = new MountainExplorationView();
+        mountainExplorationView.display();
     }
 }
