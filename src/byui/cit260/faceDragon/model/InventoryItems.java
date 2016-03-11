@@ -6,6 +6,7 @@
 package byui.cit260.faceDragon.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -13,8 +14,12 @@ import java.util.Objects;
  * @author Justin
  */
 public class InventoryItems implements Serializable{
-    private String description;
-    private String type;
+    ArrayList<InventoryItems> inventoryItems = new ArrayList<>();
+    
+    
+    private Characters characters;
+    
+    private Location[] location;
 
     public InventoryItems() {
     }
@@ -35,6 +40,22 @@ public class InventoryItems implements Serializable{
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public Characters getCharacters() {
+        return characters;
+    }
+
+    public void setCharacters(Characters characters) {
+        this.characters = characters;
+    }
+
+    public Location[] getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location[] location) {
+        this.location = location;
     }
 
     @Override

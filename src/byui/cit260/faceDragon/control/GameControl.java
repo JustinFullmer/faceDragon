@@ -5,8 +5,12 @@
  */
 package byui.cit260.faceDragon.control;
 
+import byui.cit260.faceDragon.model.Game;
+import byui.cit260.faceDragon.model.InventoryItems;
+import byui.cit260.faceDragon.model.Map;
 import byui.cit260.faceDragon.model.Player;
 import facedragon.FaceDragon;
+import java.util.ArrayList;
 
 /**
  *
@@ -15,7 +19,13 @@ import facedragon.FaceDragon;
 public class GameControl {
 
     public static void createNewGame(Player player) {
-        System.out.println("\n *** createNewGame() stub function called ***");
+        Game game = new Game();
+        FaceDragon.setCurrentGame(game);
+        game.setPlayer(player);
+        ArrayList<InventoryItems> inventoryItems = new ArrayList<>();
+        Map map = new MapControl.createMap();
+               
+        
     }   
 
     public static Player createPlayer(String name) {

@@ -7,7 +7,6 @@ package facedragon;
 
 import byui.cit260.faceDragon.model.Characters;
 import byui.cit260.faceDragon.model.Game;
-import byui.cit260.faceDragon.model.Interaction;
 import byui.cit260.faceDragon.model.Scene;
 
 import byui.cit260.faceDragon.model.Player;

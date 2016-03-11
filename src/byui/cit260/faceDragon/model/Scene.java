@@ -5,24 +5,47 @@
  */
 package byui.cit260.faceDragon.model;
 
+import java.awt.Point;
 import java.io.Serializable;
 import java.util.Objects;
 /**
  *
  * @author breecarrick
  */
-public class Scene implements Serializable{
+public enum Scene implements Serializable{
+    Farm("My Home", new Point(0, 0)),
+    Village("Closest place to work.", new Point (0,1)),
+    Forest1("Lots of trees.", new Point (0,2)),
+    Forest2("Lots of trees.", new Point (0,3)),
+    Mountain1("Many rocks ond ridges.", new Point(0,4)),
+    Forest3("Dark and Scary.", new Point (1,0)),
+    Forest4("Dark and Scary.", new Point (1,1)),
+    Forest5("Dark and Scary.", new Point (1,2)),
+    Forest6("Dark and Scary.", new Point (1,3)),
+    Mountain2("Tall with cliffs.", new Point (1,4)),
+    Cave1("Dark and filthy.", new Point (2,0)),
+    Forest7("Creepy and dark.", new Point (2,1)),
+    Forest8("Creepy and scary.", new Point (2,2)),
+    Forest9("Dark and musty.", new Point (2,3)),
+    Forest10("Dark and damp.", new Point (2,4)),
+    Cave2("Dark and strange.", new Point (3,0)),
+    Forest11("Dark and Scary.", new Point (3,1)),
+    Lake("Shimmering with magic in the air.", new Point (3,2)),
+    Mountain3("High with something magical about it.", new Point (3,3)),
+    Mountain4("High with borken boulders.", new Point (3,4)),
+    Forest12("Dark and musty", new Point (4,0)),
+    Forest13("Dark and Scary.", new Point (4,1)),
+    Forest14("Dark and Scary.", new Point (4,2)),
+    Mountain5("A great tower on top.", new Point (4,3)),
+    DragonsCave("Smoke filled, and really hot.", new Point (4,4));
     //class instance variables
-    private String description;
-    private String type;
+    private final String description;
+    private final Point location;
     
     //constructor function
-    public Scene() {
-    }
-
-    public Scene(String description, String type) {
+    Scene(String description, Point location) {
         this.description = description;
-        this.type = type;
+        this.location = location;
     }
     
     //getter and setter functions
@@ -30,49 +53,12 @@ public class Scene implements Serializable{
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public Point getLocation() {
+        return location;
     }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-    
-    //hashcode and equals
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 89 * hash + Objects.hashCode(this.description);
-        hash = 89 * hash + Objects.hashCode(this.type);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Scene other = (Scene) obj;
-        if (!Objects.equals(this.description, other.description)) {
-            return false;
-        }
-        if (!Objects.equals(this.type, other.type)) {
-            return false;
-        }
-        return true;
-    }
-    
     //to string function
     @Override
     public String toString() {
-        return "Scene{" + "description=" + description + ", type=" + type + '}';
-    }
-    
+        return "Scene{" + "description=" + description + ", location=" + location + '}';
+}
 }

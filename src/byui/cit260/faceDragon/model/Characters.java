@@ -5,120 +5,66 @@
  */
 package byui.cit260.faceDragon.model;
 
+import java.awt.Point;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
  *
  * @author Justin
  */
-public class Characters implements Serializable{
-    private String description;
-    private String name;
-    private double strength;
-    private double experience;
-    private Location currentLocation;
-    private Location previousLocation;
+public enum Characters implements Serializable {
 
-    public Characters() {
+    Troll1("Big, Nasty And Ornery.", 30, 0, new Point(2, 2), new Point(2, 2)),
+    Troll2("Big, Brown, and Ornery.", 30, 0, new Point(4, 3), new Point(4, 3)),
+    Robbers("Ugly Thieves.", 10, 0, new Point(0, 2), new Point(0, 2)),
+    BlackKnight("Cruelest of Enemies.", 50, 0, new Point(3, 2), new Point(3, 2)),
+    EvilWizard("Dressed in black robes, with an evil smile.", 40, 0, new Point(3, 4), new Point(3, 4)),
+    Goblins("Green, Foul, and Rude", 10, 0, new Point(4, 0), new Point(4, 0)),
+    Dragon("Giant, Fire Brething, with teeth like razors.", 100, 0, new Point(4, 4), new Point(4, 4));
+
+    private final String description;
+    private final double strength;
+    private final double experience;
+    private final Point currentLocation;
+    private final Point previousLocation;
+    
+    private ArrayList<InventoryItems> ArrayList;
+
+    Characters(String description, double strength, double experience, Point currentLocation, Point previousLocation) {
+        this.description = description;
+        this.experience = experience;
+        this.strength = strength;
+        this.currentLocation = currentLocation;
+        this.previousLocation = previousLocation;
     }
-    
-    
 
     public String getDescription() {
         return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public double getStrength() {
         return strength;
     }
 
-    public void setStrength(double strength) {
-        this.strength = strength;
-    }
-
     public double getExperience() {
         return experience;
     }
 
-    public void setExperience(double experience) {
-        this.experience = experience;
-    }
-
-
-    public Location getCurrentLocation() {
+    public Point getCurrentLocation() {
         return currentLocation;
     }
 
-    public void setCurrentLocation(Location currentLocation) {
-        this.currentLocation = currentLocation;
-    }
-
-    public Location getPreviousLocation() {
+    public Point getPreviousLocation() {
         return previousLocation;
     }
 
-    public void setPreviousLocation(Location previousLocation) {
-        this.previousLocation = previousLocation;
+    public ArrayList<InventoryItems> getArrayList() {
+        return ArrayList;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 83 * hash + Objects.hashCode(this.description);
-        hash = 83 * hash + Objects.hashCode(this.name);
-        hash = 83 * hash + (int) (Double.doubleToLongBits(this.strength) ^ (Double.doubleToLongBits(this.strength) >>> 32));
-        hash = 83 * hash + (int) (Double.doubleToLongBits(this.experience) ^ (Double.doubleToLongBits(this.experience) >>> 32));
-        return hash;
-
+    public void setArrayList(ArrayList<InventoryItems> ArrayList) {
+        this.ArrayList = ArrayList;
     }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Characters other = (Characters) obj;
-
-        if (!Objects.equals(this.description, other.description)) {
-            return false;
-        }
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.strength) != Double.doubleToLongBits(other.strength)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.experience) != Double.doubleToLongBits(other.experience)) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Characters{" + "description=" + description + ", name=" + name + ", strength=" + strength + ", experience=" + experience + '}';
-    }
-
-    
-        
-    
-    
-    
-    
 }

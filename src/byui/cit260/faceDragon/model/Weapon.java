@@ -5,22 +5,31 @@
  */
 package byui.cit260.faceDragon.model;
 
+import java.awt.Point;
+import java.util.Objects;
+
 /**
  *
  * @author Justin
  */
 public class Weapon extends InventoryItems {
+    
+    private String description;
     private double strength;
+    private Point currentLocation;
 
     public Weapon() {
-        super();
+    }
+@Override
+    public String getDescription() {
+        return description;
     }
 
-    
-    
-    
-    
-    
+    @Override
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public double getStrength() {
         return strength;
     }
@@ -29,16 +38,21 @@ public class Weapon extends InventoryItems {
         this.strength = strength;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 53 * hash + (int) (Double.doubleToLongBits(this.strength) ^ (Double.doubleToLongBits(this.strength) >>> 32));
-        return hash;
+    public Point getCurrentLocation() {
+        return currentLocation;
+    }
+
+    public void setCurrentLocation(Point currentLocation) {
+        this.currentLocation = currentLocation;
     }
 
     @Override
-    public String toString() {
-        return "Weapon{" + "strength=" + strength + '}';
+    public int hashCode() {
+        int hash = 7;
+        hash = 59 * hash + Objects.hashCode(this.description);
+        hash = 59 * hash + (int) (Double.doubleToLongBits(this.strength) ^ (Double.doubleToLongBits(this.strength) >>> 32));
+        hash = 59 * hash + Objects.hashCode(this.currentLocation);
+        return hash;
     }
 
     @Override
@@ -53,9 +67,16 @@ public class Weapon extends InventoryItems {
             return false;
         }
         final Weapon other = (Weapon) obj;
-        return Double.doubleToLongBits(this.strength) == Double.doubleToLongBits(other.strength);
+        if (Double.doubleToLongBits(this.strength) != Double.doubleToLongBits(other.strength)) {
+            return false;
+        }
+        if (!Objects.equals(this.description, other.description)) {
+            return false;
+        }
+        if (!Objects.equals(this.currentLocation, other.currentLocation)) {
+            return false;
+        }
+        return true;
     }
-    
-    
     
 }

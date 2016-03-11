@@ -15,6 +15,8 @@ public class Map implements Serializable{
     private double rowCount;
     private double columnCount;
     
+    private Game[] game;
+    
     //constructor function
 
     public Map() {
@@ -35,6 +37,14 @@ public class Map implements Serializable{
 
     public void setColumnCount(double columnCount) {
         this.columnCount = columnCount;
+    }
+
+    public Game[] getGame() {
+        return game;
+    }
+
+    public void setGame(Game[] game) {
+        this.game = game;
     }
  
     //hashcode and equals
