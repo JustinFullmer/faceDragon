@@ -22,8 +22,10 @@ public class GameControl {
         Game game = new Game();
         FaceDragon.setCurrentGame(game);
         game.setPlayer(player);
-        ArrayList<InventoryItems> inventoryItems = new ArrayList<>();
+        InventoryItems[] inventoryItems = GameControl.createInventoryItems();
+        game.setInventoryItems(inventoryItems);
         Map map = new MapControl.createMap();
+        game.setMap(map);
                
         
     }   

@@ -6,7 +6,6 @@
 package byui.cit260.faceDragon.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -14,8 +13,8 @@ import java.util.Objects;
  * @author Justin
  */
 public class InventoryItems implements Serializable{
-    ArrayList<InventoryItems> inventoryItems = new ArrayList<>();
-    
+    private String description;
+    private String type;
     
     private Characters characters;
     

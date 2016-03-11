@@ -16,6 +16,7 @@ public class Game implements Serializable{
     private String description;
     private String progress;
 
+    private InventoryItems[] inventoryItems;
     private Player player;
     private Map map;
     public Game() {
@@ -51,6 +52,14 @@ public class Game implements Serializable{
 
     public void setMap(Map map) {
         this.map = map;
+    }
+
+    public InventoryItems[] getInventoryItems() {
+        return inventoryItems;
+    }
+
+    public void setInventoryItems(InventoryItems[] inventoryItems) {
+        this.inventoryItems = inventoryItems;
     }
 
     @Override

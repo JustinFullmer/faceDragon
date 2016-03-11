@@ -30,7 +30,7 @@ public enum Characters implements Serializable {
     private final Point currentLocation;
     private final Point previousLocation;
     
-    private ArrayList<InventoryItems> ArrayList;
+    private ArrayList<InventoryItems> inventoryItems = new ArrayList<>();
 
     Characters(String description, double strength, double experience, Point currentLocation, Point previousLocation) {
         this.description = description;
@@ -60,11 +60,11 @@ public enum Characters implements Serializable {
         return previousLocation;
     }
 
-    public ArrayList<InventoryItems> getArrayList() {
-        return ArrayList;
+    public ArrayList<InventoryItems> getInventoryItems() {
+        return inventoryItems;
     }
 
-    public void setArrayList(ArrayList<InventoryItems> ArrayList) {
-        this.ArrayList = ArrayList;
+    public void setInventoryItems(ArrayList<InventoryItems> inventoryItems) {
+        this.inventoryItems = inventoryItems;
     }
 }
