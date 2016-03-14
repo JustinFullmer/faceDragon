@@ -16,10 +16,37 @@ public class Map implements Serializable{
     private double columnCount;
     
     private Game[] game;
+    private Location locations[][];
     
     //constructor function
 
     public Map() {
+    }
+
+    public Map(int rowCount, int columnCount) {
+        if (rowCount < 1 || columnCount < 1) {
+            System.out.println("The number of rows and columns must be > zero");
+            return;
+        }
+        
+        this.rowCount = rowCount;
+        this.columnCount = columnCount;
+        
+        //created 2-D array for Location objects
+        this.locations = new Location[rowCount][columnCount];
+        
+        for (int row = 0; row < rowCount; row++) {
+            for (int column=0; column < columnCount; column++) {
+                //create and initializa new Location object instance
+                Location location = new Location();
+                location.setColumn(column);
+                location.setRow(row);
+                location.setVisited(null);
+                
+                //assign the Location object to the current position in the array
+                locations[row][column] = location;
+            }
+        }
     }
     
     //getter and setter functions
@@ -46,6 +73,15 @@ public class Map implements Serializable{
     public void setGame(Game[] game) {
         this.game = game;
     }
+
+    public Location[][] getLocation() {
+        return locations;
+    }
+
+    public void setLocation(Location[][] location) {
+        this.locations = location;
+    }
+    
  
     //hashcode and equals
 

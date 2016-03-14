@@ -67,4 +67,16 @@ public enum Characters implements Serializable {
     public void setInventoryItems(ArrayList<InventoryItems> inventoryItems) {
         this.inventoryItems = inventoryItems;
     }
+
+    public void setCurrentLocation(Location tempLocation) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setPreviousLocation(Point currentLocation) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setCurrentLocation(Point tempLocation) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
