@@ -5,6 +5,8 @@
  */
 package byui.cit260.faceDragon.view;
 
+import byui.cit260.faceDragon.control.GameControl;
+import byui.cit260.faceDragon.model.InventoryItems;
 import java.util.Scanner;
 
 /**
@@ -16,9 +18,10 @@ public class GameMenuView extends View {
     public GameMenuView() {
         super("\n"
                 +"\n----------------------"
-                +"\n| Game Play               |"
+                +"\n| Game Play           |"
                 +"\n----------------------"
-                +"\nI - Inventory"
+                +"\nE - View Inventory"
+                +"\nI - Inventory Menu"
                 +"\nM - Move Location"
                 +"\nV - View Map"
                 +"\nO - Objectives"
@@ -38,6 +41,9 @@ public class GameMenuView extends View {
         switch (choice) {
             case "I":
                 this.inventoryMenu();
+                break;
+            case "E":
+                this.displayInventory();
                 break;
             case "M":
                 this.moveLocation();
@@ -118,5 +124,19 @@ public class GameMenuView extends View {
     private void exploreMountain() {
         MountainExplorationView mountainExplorationView = new MountainExplorationView();
         mountainExplorationView.display();
+    }
+
+    private void displayInventory() {
+        InventoryItems[] inventory = GameControl.getSortedInventoryList();
+        
+        System.out.println("\n List of Inventory Items");
+        System.out.println("Description" + "\t" + "Type");
+        
+        //for each inventory item
+        for(InventoryItems inventoryItem : inventory) {
+            //DISPLAY the description the required amount and amount in stock
+            System.out.println(inventoryItem.getDescription() + "\t" +
+                               inventoryItem.getType() );
+        }
     }
 }

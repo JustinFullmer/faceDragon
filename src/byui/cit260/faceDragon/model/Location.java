@@ -6,6 +6,7 @@
 package byui.cit260.faceDragon.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -16,7 +17,8 @@ public class Location implements Serializable{
     private double column;
     private double row;
     private String visited;
-    private Characters character;
+    private ArrayList<Characters> character;
+    private Scene scene;
     
     
     public Location() {
@@ -48,13 +50,23 @@ public class Location implements Serializable{
         this.visited = visited;
     }
 
-    public Characters getCharacter() {
+    public ArrayList<Characters> getCharacter() {
         return character;
     }
 
-    public void setCharacter(Characters character) {
+    public void setCharacter(ArrayList<Characters> character) {
         this.character = character;
     }
+
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+
+    
     @Override
     public int hashCode() {
         int hash = 7;
