@@ -19,8 +19,23 @@ public class InventoryItems implements Serializable{
     private Characters characters;
     
     private Location[] location;
+    private Object items;
 
-    public InventoryItems() {
+    public InventoryItems[]sortItems(InventoryItems[]orgItems) {
+        InventoryItems[] items = orgItems.clone();
+        if(orgItems==null){
+            return null;   
+        }
+        int listLength = items.length;
+        int nextPosition;
+        for(int m =listLength; m>=0; m--){
+            for (int i=0 ;i<listLength; i++){
+                nextPosition = i+1;
+                if(items[i].getDescription().compareTo(items[nextPosition].getDescription())>0){
+                    swapNumbers(i, nextPosition, list);
+                }
+            }
+        }
     }
 
     
@@ -87,10 +102,5 @@ public class InventoryItems implements Serializable{
             return false;
         }
         return Objects.equals(this.type, other.type);
-    }
-    
-    
-    
-    
-    
+    }    
 }
