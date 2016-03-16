@@ -5,6 +5,7 @@
  */
 package byui.cit260.faceDragon.view;
 
+import byui.cit260.faceDragon.model.Location;
 import java.util.Scanner;
 
 /**
@@ -60,7 +61,10 @@ public class MovingLocationsView extends View{
         return false;
         }
     private void north() {
-        System.out.println("\n ***north function called***");    
+        System.out.println("\n ***north function called***");
+        //remove this later
+        Location north = new Location();
+        north.setVisited(true);
     }
     private void south() {
         System.out.println("\n ***south function called***");    

@@ -6,7 +6,12 @@
 package byui.cit260.faceDragon.view;
 
 import byui.cit260.faceDragon.control.GameControl;
+import byui.cit260.faceDragon.model.Game;
 import byui.cit260.faceDragon.model.InventoryItems;
+import byui.cit260.faceDragon.model.Location;
+import byui.cit260.faceDragon.model.Map;
+import facedragon.FaceDragon;
+import static java.util.Collections.list;
 import java.util.Scanner;
 
 /**
@@ -72,6 +77,9 @@ public class GameMenuView extends View {
             case "B":
                 this.exploreMountain();
                 break;
+            case "Z":
+                this.sortItems();
+                break;
             default:
                 System.out.println("\n *** Invalid Selection *** Try Again ***");
                 break;
@@ -90,7 +98,23 @@ public class GameMenuView extends View {
     }
 
     private void viewMap() {
-        System.out.println("\n *** viewMap() function called ***");    
+        //System.out.println("\n *** viewMap() function called ***");//
+        Location [][] locations = FaceDragon.getCurrentGame().getMap().getLocation();
+        double rowCount = FaceDragon.getCurrentGame().getMap().getRowCount();
+        double columnCount = FaceDragon.getCurrentGame().getMap().getColumnCount();
+        System.out.println("Map");
+        for(int r=0; r<5; r++){
+            System.out.println("-");
+            System.out.println(r);
+            for(int c=0; c<5; c++){
+                System.out.println("|");
+                System.out.println(c);
+                if(locations[r][c].getVisited()){
+                    System.out.println("~~");                
+               }System.out.println("??");
+            }System.out.println("|");
+        }System.out.println("-");
+        
     }
 
     private void objectives() {
@@ -138,5 +162,10 @@ public class GameMenuView extends View {
             System.out.println(inventoryItem.getDescription() + "\t" +
                                inventoryItem.getType() );
         }
+    }
+
+    private InventoryItems[] sortItems() {
+        InventoryItems[] items = GameControl.sortItems(FaceDragon.getCurrentGame().getInventoryItems());
+        return items;
     }
 }
