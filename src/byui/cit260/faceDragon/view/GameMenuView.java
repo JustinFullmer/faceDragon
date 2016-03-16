@@ -37,6 +37,7 @@ public class GameMenuView extends View {
                 +"\nA - Attack"
                 +"\nB - Mountain Exploration View"
                 +"\nQ - Quit to Main Menu"
+                +"\nZ - Swap List"
                 +"\n----------------------");
     }      
     @Override
