@@ -5,6 +5,7 @@
  */
 package byui.cit260.faceDragon.control;
 
+import byui.cit260.faceDragon.exceptions.MapControlException;
 import byui.cit260.faceDragon.model.Characters;
 import byui.cit260.faceDragon.model.Game;
 import byui.cit260.faceDragon.model.Location;
@@ -32,18 +33,22 @@ public class MapControl {
 
     //static class createMap extends Map {
 
-        public static Map createMap() {
+        public static Map createMap() throws MapControlException{
             //create the map
             Map map = new Map(20, 20);
             //assign the different scenes to locations in the map
-            assignScenesToLocations(map);
+            assignScenesToLocations(map);          
             
             return map;
         }
     //}
 
 
-    private static void assignScenesToLocations(Map map) {
+    private static void assignScenesToLocations(Map map) 
+            throws MapControlException {
+        if(map == null){
+            throw new MapControlException("No map given");
+        }
         Location[][] locations = map.getLocation();
         
         //start point

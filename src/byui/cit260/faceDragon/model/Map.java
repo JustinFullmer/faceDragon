@@ -5,6 +5,7 @@
  */
 package byui.cit260.faceDragon.model;
 
+import byui.cit260.faceDragon.exceptions.MapControlException;
 import java.io.Serializable;
 /**
  *
@@ -23,10 +24,9 @@ public class Map implements Serializable{
     public Map() {
     }
 
-    public Map(int rowCount, int columnCount) {
-        if (rowCount < 1 || columnCount < 1) {
-            System.out.println("The number of rows and columns must be > zero");
-            return;
+    public Map(int rowCount, int columnCount) throws MapControlException{
+        if (rowCount < 0 || columnCount < 0) {
+            throw new MapControlException("Invalid row and column count.");
         }
         
         this.rowCount = rowCount;
@@ -41,7 +41,7 @@ public class Map implements Serializable{
                 Location location = new Location();
                 location.setColumn(column);
                 location.setRow(row);
-                location.setVisited(null);
+                location.setVisited(false);
                 
                 //assign the Location object to the current position in the array
                 locations[row][column] = location;
