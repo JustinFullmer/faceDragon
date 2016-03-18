@@ -6,8 +6,9 @@
 package byui.cit260.faceDragon.view;
 
 import byui.cit260.faceDragon.control.FairiesControl;
-import byui.cit260.faceDragon.model.Characters;
-import byui.cit260.faceDragon.model.Location;
+//import byui.cit260.faceDragon.model.Characters;
+//import byui.cit260.faceDragon.model.Location;
+import byui.cit260.faceDragon.model.Player;
 import java.util.Scanner;
 
 /**
@@ -33,7 +34,7 @@ public class FairiesEncounterView extends View {
     @Override
     public boolean doAction(String playersAnswer) {
         //this is temporary.. in order to test function
-        Characters player = new Characters();
+        Player player = new Player();
         player.setName("Bree");
         player.setExperience(20);
 

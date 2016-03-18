@@ -5,34 +5,40 @@
  */
 package byui.cit260.faceDragon.control;
 
-import byui.cit260.faceDragon.model.Characters;
+//import byui.cit260.faceDragon.model.Characters;
+import byui.cit260.faceDragon.exceptions.FairiesControlException;
+import byui.cit260.faceDragon.model.Player;
 
 /**
  *
  * @author breecarrick
  */
 public class FairiesControl {
-    public static double fairyExperience(Characters character, double userNumber) {
+    public static double fairyExperience(Player player, double userNumber) throws FairiesControlException {
 
-        if (character == null) {
-            return -555;
+        if (player == null) {
+            //return -555;
+            throw new FairiesControlException("Cannot update experience: player not detected");
         }
-        if (character.getExperience() < 0) {
-            return -444;
+        if (player.getExperience() < 0) {
+            //return -444;
+            throw new FairiesControlException("Cannot update experience: experience is zero");
         }
         if (userNumber > 3) {
-            return 1000;
+            //return 1000;
+            throw new FairiesControlException("Number cannot be greater than 3");
         }
         if (userNumber < 1) {
-            return -111;
+            //return -111;
+            throw new FairiesControlException("Number cannot be less than 1");
         }
 
         //Calculate the experience from meeting with the fairies
-        double currentExperience = character.getExperience();
+        double currentExperience = player.getExperience();
         double experienceFromFairies = currentExperience * userNumber;
         double overallExperience = experienceFromFairies + currentExperience;
         //update experience
-        character.setExperience(overallExperience);
+        player.setExperience(overallExperience);
 
         return overallExperience;
     }
