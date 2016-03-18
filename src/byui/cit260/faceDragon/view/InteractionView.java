@@ -7,6 +7,7 @@ package byui.cit260.faceDragon.view;
 
 import byui.cit260.faceDragon.control.InteractionControl;
 import byui.cit260.faceDragon.control.MapControl;
+import byui.cit260.faceDragon.exceptions.InteractionControlException;
 import byui.cit260.faceDragon.model.Characters;
 import byui.cit260.faceDragon.model.Location;
 import java.util.Scanner;
@@ -55,6 +56,7 @@ public class InteractionView extends View{
             
         
         if (choice.toUpperCase().equals("F")) {
+            try{
                 double result = InteractionControl.attack(player.getStrength(), player.getExperience());
                 boolean win = InteractionControl.doAttack(monster.getStrength(), result);
                 
@@ -65,6 +67,9 @@ public class InteractionView extends View{
                     System.out.println("\nYou LOSE HAHAHAHAHA!!!!!");
                     return false;
                 }
+            }catch (InteractionControlException ie){
+                System.out.println(ie.getMessage());
+            }
         } else if(choice.toUpperCase().equals("R")){
                 //return to previous location and display message have returned to previous location return true
                 MapControl.returnToPreviousLocation(player);

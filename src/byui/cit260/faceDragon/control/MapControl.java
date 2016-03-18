@@ -25,32 +25,34 @@ public class MapControl {
         Point tempLocation = player.getPreviousLocation();
         player.setPreviousLocation(player.getCurrentLocation());
         player.setCurrentLocation(tempLocation);
-          }
+    }
 
     static void moveCharactersToStartingLocation(Map map) {
         System.out.println("**** moveCharactersToStartingLocation funciont called*************");
     }
 
     //static class createMap extends Map {
+    public static Map createMap() throws MapControlException {
+        //create the map
+        Map map = new Map(20, 20);
+        //assign the different scenes to locations in the map
+        assignScenesToLocations(map);
 
-        public static Map createMap() throws MapControlException{
-            //create the map
-            Map map = new Map(20, 20);
-            //assign the different scenes to locations in the map
-            assignScenesToLocations(map);          
-            
-            return map;
+        if (map == null) {
+            throw new MapControlException();
         }
+
+        return map;
+    }
     //}
 
-
-    private static void assignScenesToLocations(Map map) 
+    private static void assignScenesToLocations(Map map)
             throws MapControlException {
-        if(map == null){
+        if (map == null) {
             throw new MapControlException("No map given");
         }
         Location[][] locations = map.getLocation();
-        
+
         //start point
         locations[0][0].setScene(Scene.Farm);
         locations[0][1].setScene(Scene.Village);
@@ -84,5 +86,5 @@ public class MapControl {
         public createMap() {
         }
     }
-    
+
 }

@@ -48,7 +48,7 @@ public class FaceDragon {
     public static void main(String[] args) {
     //test start program view
     StartProgramView startProgramView = new StartProgramView();
-    startProgramView.displayStartProgramView();
+    startProgramView.display();
     }
     
 }

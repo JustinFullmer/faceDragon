@@ -13,113 +13,77 @@ import java.util.Scanner;
  *
  * @author breecarrick
  */
-public class StartProgramView {
+public class StartProgramView extends View {
 
-    private String promptMessage;
-    
     public StartProgramView() {
-        this.promptMessage = "\n Please enter your name";
-        
-        this.displayBanner();
-    }
-    
-    public void displayBanner() {
-        System.out.println(
-         "\n**************************************************************"
-        +"\n*                                                            *"
-        +"\n*This is the game Face the Dragon.                           *"
-        +"\n*In this game, you will be taking on the role of a farm boy. *"
-        +"\n*Recently a dragon has invaded the kingdom. Many knights have*"
-        +"\n*died trying to kill the dragon. As a final effort to save   *"
-        +"\n*the kingdom the King has issued a proclamation that whoever *"
-        +"\n*slays the dragon and brings back its head will be knighted  *"
-        +"\n*and marry the Princess.                                     *"
-        +"\n*                                                            *"
-        +"\n*To be able to face this dragon you will need to gain        *"
-        +"\n*experience and equipment. You will have to complete various *"
-        +"\n*tasks in order to gain the experience and the gold you need.*"
-        +"\n*Good luck, hope you don't die ;)                            *"
-        +"\n*                                                            *"
-        +"\n**************************************************************"
-        );
+        super(
+                "\n**************************************************************"
+                + "\n*                                                            *"
+                + "\n*This is the game Face the Dragon.                           *"
+                + "\n*In this game, you will be taking on the role of a farm boy. *"
+                + "\n*Recently a dragon has invaded the kingdom. Many knights have*"
+                + "\n*died trying to kill the dragon. As a final effort to save   *"
+                + "\n*the kingdom the King has issued a proclamation that whoever *"
+                + "\n*slays the dragon and brings back its head will be knighted  *"
+                + "\n*and marry the Princess.                                     *"
+                + "\n*                                                            *"
+                + "\n*To be able to face this dragon you will need to gain        *"
+                + "\n*experience and equipment. You will have to complete various *"
+                + "\n*tasks in order to gain the experience and the gold you need.*"
+                + "\n*Good luck, hope you don't die ;)                            *"
+                + "\n*                                                            *"
+                + "\n**************************************************************"
+                + "\n Please Enter your Name:");
     }
 
-    public void displayStartProgramView() {
-        
-        boolean done = false;
-        do {
-            String playersName = this.getPlayersName();
-            if (playersName.toUpperCase().equals("Q"))
-                return;
-            done = this.doAction(playersName);
-        } while (!done);
-        
-    }
 
-    private String getPlayersName() {
-        /*getInput(): value
-            BEGIN
-            WHILE a valid value has not been entered
-             DISPLAY a message prompting the user to enter a value
-            GET the value entered from keyboard
-            Trim front and trailing blanks off of the value
-            IF the length of the value is blank THEN
-            DISPLAY “Invalid value: The value cannot be blank”
-            CONTINUE
-            ENDIF
-            BREAK
-            ENDWHILE
-            RETURN value
-        END */
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-        
-        while (!valid) {
-        
-            System.out.println("\n" + this.promptMessage);
-            
-            value= keyboard.nextLine();
-            value= value.trim();
-            
-            if (value.length() <1) {
-                System.out.println("\nInvalid value: value cannot be blank");
-                continue;
-            }
-            
-            break;
+    public boolean doAction(String playersName) {
+        if (playersName.length() < 2) {
+            System.out.println("\nInvalid players name: "
+                    + "The name must be greater than one character in length");
+            return false;
         }
-        return value;
+        
+        //prompt to type an age
+        this.displayMessage = "\n Please enter your Age:";
+                
+        //call getinput function
+        String strAge = this.getInput();
+        
+        int age; 
+        try{
+        age = Integer.parseInt(strAge);
+        }catch (NumberFormatException nf){
+            System.out.println("Not a valid number. Please try again.");
+            return false;
+        }
+        if (age < 13){
+            System.out.println("Too Young");
+            return true;
+        }
+        //call createPlayer() control function
+        Player player = GameControl.createPlayer(playersName);
+
+        if (player == null) { // if unsuccessful
+            System.out.println("\nError creating the player.");
+            return false;
+        }
+
+        //display next view
+        this.displayNextView(player);
+
+        return true; //success
     }
-        private boolean doAction(String playersName) {
-            if(playersName.length() < 2) {
-                System.out.println("\nInvalid players name: "
-                                + "The name must be greater than one character in length");
-                return false;
-            }
-            //call createPlayer() control function
-            Player player = GameControl.createPlayer(playersName);
-            
-            if (player == null) { // if unsuccessful
-                System.out.println("\nError creating the player.");
-                return false;
-            }
-            
-            //display next view
-            this.displayNextView(player);
-            
-            return true; //success
-        }
 
     private void displayNextView(Player player) {
         //display a custom welcome message
         System.out.println("\n====================================="
-                          +"\n Welcome to the game " + player.getName()
-                          +"\n We hope you have a lot of fun!"
-                          +"\n=====================================");
+                + "\n Welcome to the game " + player.getName()
+                + "\n We hope you have a lot of fun!"
+                + "\n=====================================");
         //create MainMenuWiew object
-        MainMenuView mainMenuView= new MainMenuView();
-        
+        MainMenuView mainMenuView = new MainMenuView();
+
         //display the main menu view
         mainMenuView.display();
     }

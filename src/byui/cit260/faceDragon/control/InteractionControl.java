@@ -5,6 +5,7 @@
  */
 package byui.cit260.faceDragon.control;
 
+import byui.cit260.faceDragon.exceptions.InteractionControlException;
 import byui.cit260.faceDragon.view.InteractionView;
 
 /**
@@ -13,14 +14,14 @@ import byui.cit260.faceDragon.view.InteractionView;
  */
 public class InteractionControl {
 
-    public static double attack(double weaponStrength, double currentExperience) {
+    public static double attack(double weaponStrength, double currentExperience) throws InteractionControlException {
 
         if (weaponStrength < 0) {
-            return -1;
+            throw new InteractionControlException("Weapon Strength can't be lower than 0");
         }
 
         if (currentExperience < 0) {
-            return -2;
+            throw new InteractionControlException("Experience can't be lower than 0");
         }
 
         double overallWeaponStrength = weaponStrength * (Math.random() + 1);
@@ -32,11 +33,7 @@ public class InteractionControl {
 
     public static boolean doAttack(double monsterStrength, double attackStrength) {
 
-        if (attackStrength >= monsterStrength) {
-            return true;
-        } else {
-            return false;
-        }
+        return attackStrength >= monsterStrength;
     }
 
 }

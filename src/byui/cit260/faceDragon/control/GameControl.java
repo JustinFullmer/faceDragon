@@ -5,6 +5,8 @@
  */
 package byui.cit260.faceDragon.control;
 
+import byui.cit260.faceDragon.exceptions.GameControlException;
+import byui.cit260.faceDragon.exceptions.MapControlException;
 import byui.cit260.faceDragon.model.Game;
 import byui.cit260.faceDragon.model.InventoryItems;
 import byui.cit260.faceDragon.model.Map;
@@ -25,11 +27,14 @@ public class GameControl {
         //create the inventory list and save in the game
         InventoryItems[] inventoryItems = GameControl.createInventoryItems();
         game.setInventoryItems(inventoryItems);
-        Map map = new MapControl.createMap(); //create and initialize new map
-        game.setMap(map); //save map in game
-
+        try {
+            Map map = MapControl.createMap(); //create and initialize new map
+            game.setMap(map); //save map in game        
         //move characters to starting position in the map
         MapControl.moveCharactersToStartingLocation(map);
+        } catch (MapControlException me) {
+          System.out.println(me.getMessage());
+        }
 
     }
 
@@ -109,7 +114,7 @@ public class GameControl {
         return inventory;
     }
 
-    public static InventoryItems[] sortItems(InventoryItems[] orgItems) {
+    public static InventoryItems[] sortItems(InventoryItems[] orgItems) throws GameControlException {
         if (orgItems == null) {
             return null;
         }
@@ -120,9 +125,10 @@ public class GameControl {
             for (int i = 0; i < listLength - 1; i++) {
                 nextPosition = i + 1;
                 if (items[i].getDescription().compareTo(items[nextPosition].getDescription()) > 0) {
+                    try{
                     int result = GameControl.swap(i, nextPosition, items);
-                    if (result < 0) {
-                        return null;
+                    }catch(GameControlException ge){
+                        System.out.println(ge.getMessage());
                     }
                 }
             }
@@ -130,15 +136,17 @@ public class GameControl {
         return items;
     }
 
-    private static int swap(int currentPosition, int correctPosition, InventoryItems[] list) {
+    private static int swap(int currentPosition, int correctPosition, InventoryItems[] list) throws GameControlException {
         if (list == null) {
-            return -1;
+            throw new GameControlException("You don't have a list");
         }
         if (currentPosition < 0 || currentPosition >= list.length) {
-            return -2;
+            throw new GameControlException("The currentPosition is less than 0 or"
+                    + "it is greater than or equal to the list length and that is out of the list boundaries");
         }
         if (correctPosition < 0 || correctPosition >= list.length) {
-            return -3;
+            throw new GameControlException("The correctPosition is less than 0 or"
+                    + "it is greater than or equal to the list length and that is out of the list boundaries");
         }
         InventoryItems temp;
         temp = list[currentPosition];
