@@ -20,7 +20,6 @@ public class InventoryMenuView extends View {
                 + "\nR - Resources"
                 + "\nT - Items"
                 + "\nL - Energy Level and Experience"
-                + "\nV - Implement Age"
                 + "\nQ - Quit to Menu"
                 + "\n----------------------------------");
     }
@@ -41,9 +40,6 @@ public class InventoryMenuView extends View {
                 break;
             case "L":
                 this.displayEnergy();
-                break;
-            case "V":
-                this.displayAge();
                 break;
             default:
                 System.out.println("\n *** Invalid Selection *** Try Again ***");
@@ -67,9 +63,4 @@ public class InventoryMenuView extends View {
     private void displayEnergy() {
         System.out.println("**** displayEnergy() function called");
     }
-
-    private void displayAge() {
-        
-    }
-
 }
