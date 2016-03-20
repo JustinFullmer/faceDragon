@@ -6,6 +6,7 @@
 package byui.cit260.faceDragon.view;
 
 import byui.cit260.faceDragon.control.GameControl;
+import byui.cit260.faceDragon.exceptions.GameControlException;
 import byui.cit260.faceDragon.model.Game;
 import byui.cit260.faceDragon.model.InventoryItems;
 import byui.cit260.faceDragon.model.Location;
@@ -13,6 +14,8 @@ import byui.cit260.faceDragon.model.Map;
 import facedragon.FaceDragon;
 import static java.util.Collections.list;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -79,7 +82,13 @@ public class GameMenuView extends View {
                 this.exploreMountain();
                 break;
             case "Z":
+        {
+            try {
                 this.sortItems();
+            } catch (GameControlException ex) {
+                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
             default:
                 System.out.println("\n *** Invalid Selection *** Try Again ***");
@@ -165,7 +174,7 @@ public class GameMenuView extends View {
         }
     }
 
-    private InventoryItems[] sortItems() {
+    private InventoryItems[] sortItems() throws GameControlException {
         InventoryItems[] items = GameControl.sortItems(FaceDragon.getCurrentGame().getInventoryItems());
         return items;
     }

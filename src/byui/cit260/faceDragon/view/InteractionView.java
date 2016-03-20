@@ -7,10 +7,13 @@ package byui.cit260.faceDragon.view;
 
 import byui.cit260.faceDragon.control.InteractionControl;
 import byui.cit260.faceDragon.control.MapControl;
+import byui.cit260.faceDragon.exceptions.ExperienceControlException;
 import byui.cit260.faceDragon.exceptions.InteractionControlException;
 import byui.cit260.faceDragon.model.Characters;
 import byui.cit260.faceDragon.model.Location;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -69,7 +72,9 @@ public class InteractionView extends View{
                 }
             }catch (InteractionControlException ie){
                 System.out.println(ie.getMessage());
-            }
+            }   catch (ExperienceControlException ex) {
+                    Logger.getLogger(InteractionView.class.getName()).log(Level.SEVERE, null, ex);
+                }
         } else if(choice.toUpperCase().equals("R")){
                 //return to previous location and display message have returned to previous location return true
                 MapControl.returnToPreviousLocation(player);

@@ -6,6 +6,7 @@
 package byui.cit260.faceDragon.control;
 
 //import byui.cit260.faceDragon.model.Characters;
+import byui.cit260.faceDragon.exceptions.ExperienceControlException;
 import byui.cit260.faceDragon.exceptions.FairiesControlException;
 import byui.cit260.faceDragon.model.Player;
 
@@ -14,7 +15,7 @@ import byui.cit260.faceDragon.model.Player;
  * @author breecarrick
  */
 public class FairiesControl {
-    public static double fairyExperience(Player player, double userNumber) throws FairiesControlException {
+    public static double fairyExperience(Player player, double userNumber) throws FairiesControlException, ExperienceControlException {
 
         if (player == null) {
             //return -555;

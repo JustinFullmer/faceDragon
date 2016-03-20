@@ -5,6 +5,7 @@
  */
 package byui.cit260.faceDragon.model;
 
+import byui.cit260.faceDragon.exceptions.ExperienceControlException;
 import java.awt.Point;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -48,7 +49,8 @@ public enum Characters implements Serializable {
         return strength;
     }
 
-    public double getExperience() {
+    public double getExperience() 
+                    throws ExperienceControlException {
         return experience;
     }
 

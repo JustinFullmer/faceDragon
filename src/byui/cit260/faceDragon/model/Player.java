@@ -5,6 +5,7 @@
  */
 package byui.cit260.faceDragon.model;
 
+import byui.cit260.faceDragon.exceptions.ExperienceControlException;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -44,11 +45,13 @@ public class Player implements Serializable{
         this.age = age;
     }
 
-    public double getExperience() {
+    public double getExperience() 
+                throws ExperienceControlException {
         return experience;
     }
 
-    public void setExperience(double experience) {
+    public void setExperience(double experience) 
+                throws ExperienceControlException{
         this.experience = experience;
     }
 
