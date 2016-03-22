@@ -33,6 +33,8 @@ public class FaceDragon {
 
     private static PrintWriter outFile = null;
     private static BufferedReader inFile = null;
+    
+    private static PrintWriter logFile = null;
 
     public static PrintWriter getOutFile() {
         return outFile;
@@ -65,6 +67,14 @@ public class FaceDragon {
     public static void setPlayer(Player player) {
         FaceDragon.player = player;
     }
+
+    public static PrintWriter getLogFile() {
+        return logFile;
+    }
+
+    public static void setLogFile(PrintWriter logFile) {
+        FaceDragon.logFile = logFile;
+    }
     
     /**
      * @param args the command line arguments
@@ -76,6 +86,8 @@ public class FaceDragon {
     FaceDragon.inFile = 
             new BufferedReader(new InputStreamReader(System.in));
     FaceDragon.outFile = new PrintWriter(System.out, true);
+    String filePath = "log.txt";
+    FaceDragon.logFile = new PrintWriter(filePath);
     //create start program view and start the program
     StartProgramView startProgramView = new StartProgramView();
     startProgramView.display();
@@ -91,6 +103,8 @@ public class FaceDragon {
                 FaceDragon.inFile.close();
             if (FaceDragon.outFile != null)
                 FaceDragon.outFile.close();
+            if (FaceDragon.logFile != null)
+                FaceDragon.logFile.close();
         } catch (IOException ex) {
             System.out.println("Error closing files");
             return;
