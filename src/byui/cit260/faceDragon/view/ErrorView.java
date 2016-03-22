@@ -14,11 +14,15 @@ import java.io.PrintWriter;
  */
 public class ErrorView {
     public static final PrintWriter errorFile = FaceDragon.getOutFile();
+    private static final PrintWriter logFile = FaceDragon.getLogFile();
     
     public static void display(String className, String errorMessage) {
         errorFile.println(
                     "----------------------------------------------"
                    +"\n- ERROR - " + errorMessage
                    +"\n----------------------------------------------");
+        
+        //log error
+        logFile.println(className+" - "+ errorMessage);
     }
 }
