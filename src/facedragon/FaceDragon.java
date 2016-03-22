@@ -17,6 +17,12 @@ import byui.cit260.faceDragon.model.Location;
 import byui.cit260.faceDragon.model.Map;
 import byui.cit260.faceDragon.view.MainMenuView;
 import byui.cit260.faceDragon.view.StartProgramView;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author Justin
@@ -25,6 +31,25 @@ public class FaceDragon {
     private static Game currentGame = null;
     private static Player player = null;
 
+    private static PrintWriter outFile = null;
+    private static BufferedReader inFile = null;
+
+    public static PrintWriter getOutFile() {
+        return outFile;
+    }
+
+    public static void setOutFile(PrintWriter outfile) {
+        FaceDragon.outFile = outFile;
+    }
+
+    public static BufferedReader getInFile() {
+        return inFile;
+    }
+
+    public static void setInFile(BufferedReader inFile) {
+        FaceDragon.inFile = inFile;
+    }
+    
     public static Game getCurrentGame() {
         return currentGame;
     }
@@ -46,15 +71,38 @@ public class FaceDragon {
      */
     //instance of Player class to test it
     public static void main(String[] args) {
-    //test start program view
-    StartProgramView startProgramView = new StartProgramView();
     try {
-        startProgramView.displayStartProgramView();
-    } catch (Throwable te) {
-        System.out.println(te.getMessage());
-        te.printStackTrace();
-        startProgramView.displayStartProgramView();
+        //open character strem files for end user input and output
+    FaceDragon.inFile = 
+            new BufferedReader(new InputStreamReader(System.in));
+    FaceDragon.outFile = new PrintWriter(System.out, true);
+    //create start program view and start the program
+    StartProgramView startProgramView = new StartProgramView();
+    startProgramView.display();
+    return;
+    } catch (Throwable e) {
+        System.out.println("Exception: " + e.toString() +
+                           "\nCause: " + e.getCause() +
+                            "\nMessage: " + e.getMessage());
+        e.printStackTrace();
+    } finally {
+        try {
+            if (FaceDragon.inFile != null)
+                FaceDragon.inFile.close();
+            if (FaceDragon.outFile != null)
+                FaceDragon.outFile.close();
+        } catch (IOException ex) {
+            System.out.println("Error closing files");
+            return;
+        }
     }
+//    try {
+//        startProgramView.displayStartProgramView();
+//    } catch (Throwable te) {
+//        System.out.println(te.getMessage());
+//        te.printStackTrace();
+//        startProgramView.displayStartProgramView();
+//    }
     
  
     }
