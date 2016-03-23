@@ -50,20 +50,20 @@ public abstract class View implements ViewInterface {
             
             //get the value entered from the keyboard
         
-            System.out.println("\n" + this.displayMessage);
+            this.console.println("\n" + this.displayMessage);
             
             value= this.keyboard.readLine();
             value= value.trim();
             
             if (value.length() <1) {
-                System.out.println("\nInvalid value: value cannot be blank");
+                ErrorView.display(this.getClass().getName(),"\nInvalid value: value cannot be blank");
                 continue;
             }
             
             break;
         }
         } catch (Exception e) {
-            System.out.println("Error reading input: " + e.getMessage());
+            ErrorView.display(this.getClass().getName(),"Error reading input: " + e.getMessage());
         }
         return value;
     }
