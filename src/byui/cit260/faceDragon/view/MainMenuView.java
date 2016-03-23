@@ -60,7 +60,7 @@ public class MainMenuView extends View{
 
     private void saveGame() {
         //prompt for and get the name of the file to save the game in
-        System.out.println("\n\nEnter the file path for the file where the game is to be saved."); 
+        this.console.println("\n\nEnter the file path for the file where the game is to be saved."); 
         String filePath = this.getInput();
         
         try {
@@ -72,7 +72,21 @@ public class MainMenuView extends View{
     }
 
     private void restartGame() {
-        System.out.println("\n ***restartGame function called***");    
+        //prompt for and get the name of the file to save the game in
+        this.console.println("\n\nEnter the file path for file where the game is to be saved");
+        String filePath = this.getInput();
+        
+        try {
+            //star a saved game
+            GameControl.getSavedGame(filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+        
+        //display the game menu
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
+        
     }
 
     private void helpMenu() {
