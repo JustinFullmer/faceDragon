@@ -59,7 +59,16 @@ public class MainMenuView extends View{
     }
 
     private void saveGame() {
-        System.out.println("\n ***savedGame function called***");    
+        //prompt for and get the name of the file to save the game in
+        System.out.println("\n\nEnter the file path for the file where the game is to be saved."); 
+        String filePath = this.getInput();
+        
+        try {
+            //save the game to the specified file
+            GameControl.saveGame(FaceDragon.getCurrentGame(), filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
     }
 
     private void restartGame() {
