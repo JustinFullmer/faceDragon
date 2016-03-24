@@ -11,6 +11,7 @@ import byui.cit260.faceDragon.model.Game;
 import byui.cit260.faceDragon.model.InventoryItems;
 import byui.cit260.faceDragon.model.Map;
 import byui.cit260.faceDragon.model.Player;
+import byui.cit260.faceDragon.view.ErrorView;
 import facedragon.FaceDragon;
 import java.util.ArrayList;
 
@@ -33,7 +34,7 @@ public class GameControl {
         //move characters to starting position in the map
         MapControl.moveCharactersToStartingLocation(map);
         } catch (MapControlException me) {
-          System.out.println(me.getMessage());
+         ErrorView.display("GameControl",me.getMessage());
         }
 
     }
@@ -128,7 +129,7 @@ public class GameControl {
                     try{
                     int result = GameControl.swap(i, nextPosition, items);
                     }catch(GameControlException ge){
-                        System.out.println(ge.getMessage());
+                        ErrorView.display("GameControl",ge.getMessage());
                     }
                 }
             }

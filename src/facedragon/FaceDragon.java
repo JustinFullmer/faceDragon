@@ -15,6 +15,7 @@ import byui.cit260.faceDragon.model.Weapon;
 
 import byui.cit260.faceDragon.model.Location;
 import byui.cit260.faceDragon.model.Map;
+import byui.cit260.faceDragon.view.ErrorView;
 import byui.cit260.faceDragon.view.MainMenuView;
 import byui.cit260.faceDragon.view.StartProgramView;
 import java.io.BufferedReader;
@@ -93,7 +94,7 @@ public class FaceDragon {
     startProgramView.display();
     return;
     } catch (Throwable e) {
-        System.out.println("Exception: " + e.toString() +
+        ErrorView.display("FaceDragon","Exception: " + e.toString() +
                            "\nCause: " + e.getCause() +
                             "\nMessage: " + e.getMessage());
         e.printStackTrace();
@@ -106,7 +107,7 @@ public class FaceDragon {
             if (FaceDragon.logFile != null)
                 FaceDragon.logFile.close();
         } catch (IOException ex) {
-            System.out.println("Error closing files");
+            ErrorView.display("FaceDragon","Error closing files");
             return;
         }
     }

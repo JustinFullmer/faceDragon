@@ -32,13 +32,13 @@ public class MountainExplorationView extends View {
         if (playersAnswer.toUpperCase().equals("Y")) {
             double currentStrength = weaponX.getStrength();
             double weaponStrength = currentStrength + 20;
-            System.out.println("\n Congratulations! Your weapon experience has been increased to " + weaponStrength + ".");
+            this.console.println("\n Congratulations! Your weapon experience has been increased to " + weaponStrength + ".");
             return true;
         } else if (playersAnswer.toUpperCase().equals("N")) {
-            System.out.println("\n You have said no to the armor of Arthur. It disappears from in front of you, never to be seen again.");
+            this.console.println("\n You have said no to the armor of Arthur. It disappears from in front of you, never to be seen again.");
             return true;
         } else {
-            System.out.println("\nInvalid answer. You must enter either 'Y' or 'N'.");
+            this.console.println("\nInvalid answer. You must enter either 'Y' or 'N'.");
             return false;
         }
     }

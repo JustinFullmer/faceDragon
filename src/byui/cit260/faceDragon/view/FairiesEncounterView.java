@@ -52,10 +52,10 @@ public class FairiesEncounterView extends View {
             try {
                 double theNumber = Double.parseDouble(getNumber);
                 double overallExperience = FairiesControl.fairyExperience(player, theNumber);
-                System.out.println("\n Congratulations! The fairies have increased your experience to " + overallExperience + ".");
+                this.console.println("\n Congratulations! The fairies have increased your experience to " + overallExperience + ".");
             
             } catch (NumberFormatException nf) {
-                System.out.println("\n You must enter a valid number. Try again.");
+                ErrorView.display(this.getClass().getName(),"\n You must enter a valid number. Try again.");
             } catch (FairiesControlException ex) {
                 Logger.getLogger(FairiesEncounterView.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ExperienceControlException ex) {
@@ -63,10 +63,10 @@ public class FairiesEncounterView extends View {
             }
             return true;
         } else if (playersAnswer.toUpperCase().equals("N")) {
-            System.out.println("\n The fairies are insulted that you have denied their gift and leave.");
+            this.console.println("\n The fairies are insulted that you have denied their gift and leave.");
             return true;
         } else {
-            System.out.println("\nInvalid answer. You must enter either 'Y' or 'N'.");
+            ErrorView.display(this.getClass().getName(),"\nInvalid answer. You must enter either 'Y' or 'N'.");
             return false;
         }
     }

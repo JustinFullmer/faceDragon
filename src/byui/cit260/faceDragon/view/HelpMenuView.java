@@ -37,17 +37,17 @@ public class HelpMenuView extends View{
                 this.mainMenu();
                 break;
             default:
-                System.out.println("\n *** Invalid Selection *** Try Again ***");
+                this.console.println("\n *** Invalid Selection *** Try Again ***");
                 break;
         }
         return false;
         }
     private void displayGoal() {
-        System.out.println("\n ***displayGoal function called***");    
+        this.console.println("\n ***displayGoal function called***");    
     }
 
     private void gameControls() {
-        System.out.println("\n ***display gameControls() called***");
+        this.console.println("\n ***display gameControls() called***");
     }
 
     private void mainMenu() {

@@ -39,7 +39,7 @@ public class StartProgramView extends View {
 
     public boolean doAction(String playersName) {
         if (playersName.length() < 2) {
-            System.out.println("\nInvalid players name: "
+            ErrorView.display(this.getClass().getName(),"\nInvalid players name: "
                     + "The name must be greater than one character in length");
             return false;
         }
@@ -54,18 +54,18 @@ public class StartProgramView extends View {
         try{
         age = Integer.parseInt(strAge);
         }catch (NumberFormatException nf){
-            System.out.println("Not a valid number. Please try again.");
+            ErrorView.display(this.getClass().getName(),"Not a valid number. Please try again.");
             return false;
         }
         if (age < 13){
-            System.out.println("Too Young");
+            ErrorView.display(this.getClass().getName(),"Too Young");
             return true;
         }
         //call createPlayer() control function
         Player player = GameControl.createPlayer(playersName);
 
         if (player == null) { // if unsuccessful
-            System.out.println("\nError creating the player.");
+            ErrorView.display(this.getClass().getName(),"\nError creating the player.");
             return false;
         }
 
@@ -77,7 +77,7 @@ public class StartProgramView extends View {
 
     private void displayNextView(Player player) {
         //display a custom welcome message
-        System.out.println("\n====================================="
+        this.console.println("\n====================================="
                 + "\n Welcome to the game " + player.getName()
                 + "\n We hope you have a lot of fun!"
                 + "\n=====================================");
@@ -89,6 +89,6 @@ public class StartProgramView extends View {
     }
 
     private void displayNextView(boolean player) {
-        System.out.println("\n ***  function called ***");
+        this.console.println("\n ***  function called ***");
     }
 }

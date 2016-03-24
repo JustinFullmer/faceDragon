@@ -64,21 +64,21 @@ public class InteractionView extends View{
                 boolean win = InteractionControl.doAttack(monster.getStrength(), result);
                 
                 if (win == true){
-                    System.out.println("\n You WIN!!!");
+                    this.console.println("\n You WIN!!!");
                     return true;
                 }else {
-                    System.out.println("\nYou LOSE HAHAHAHAHA!!!!!");
+                    this.console.println("\nYou LOSE HAHAHAHAHA!!!!!");
                     return false;
                 }
             }catch (InteractionControlException ie){
-                System.out.println(ie.getMessage());
+                ErrorView.display(this.getClass().getName(),ie.getMessage());
             }   catch (ExperienceControlException ex) {
                     Logger.getLogger(InteractionView.class.getName()).log(Level.SEVERE, null, ex);
                 }
         } else if(choice.toUpperCase().equals("R")){
                 //return to previous location and display message have returned to previous location return true
                 MapControl.returnToPreviousLocation(player);
-                System.out.println("\n You returned to the previous location.");
+                this.console.println("\n You returned to the previous location.");
                 return true;
             }else 
         return false;

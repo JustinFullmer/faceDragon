@@ -91,7 +91,7 @@ public class GameMenuView extends View {
         }
                 break;
             default:
-                System.out.println("\n *** Invalid Selection *** Try Again ***");
+                ErrorView.display(this.getClass().getName(),"\n *** Invalid Selection *** Try Again ***");
                 break;
         }
         return false;
@@ -112,35 +112,35 @@ public class GameMenuView extends View {
         Location [][] locations = FaceDragon.getCurrentGame().getMap().getLocation();
         double rowCount = FaceDragon.getCurrentGame().getMap().getRowCount();
         double columnCount = FaceDragon.getCurrentGame().getMap().getColumnCount();
-        System.out.println("Map");
+        this.console.println("Map");
         for(int r=0; r<5; r++){
-            System.out.println("-");
-            System.out.println(r);
+            this.console.println("-");
+            this.console.println(r);
             for(int c=0; c<5; c++){
-                System.out.println("|");
-                System.out.println(c);
+                this.console.println("|");
+                this.console.println(c);
                 if(locations[r][c].getVisited()){
-                    System.out.println("~~");                
-               }System.out.println("??");
-            }System.out.println("|");
-        }System.out.println("-");
+                    this.console.println("~~");                
+               }this.console.println("??");
+            }this.console.println("|");
+        }this.console.println("-");
         
     }
 
     private void objectives() {
-        System.out.println("\n *** objectives() function called ***");   
+        this.console.println("\n *** objectives() function called ***");   
     }
 
     private void useItem() {
-        System.out.println("\n *** useItem() function called ***");    
+        this.console.println("\n *** useItem() function called ***");    
     }
 
     private void collectItem() {
-        System.out.println("\n *** collectItem() function called ***");    
+        this.console.println("\n *** collectItem() function called ***");    
     }
 
     private void dropItem() {
-        System.out.println("\n *** dropItem() function called ***");    
+        this.console.println("\n *** dropItem() function called ***");    
     }
 
     private void helpMenu() {
@@ -163,13 +163,13 @@ public class GameMenuView extends View {
     private void displayInventory() {
         InventoryItems[] inventory = GameControl.getSortedInventoryList();
         
-        System.out.println("\n List of Inventory Items");
-        System.out.println("Description" + "\t" + "Type");
+        this.console.println("\n List of Inventory Items");
+        this.console.println("Description" + "\t" + "Type");
         
         //for each inventory item
         for(InventoryItems inventoryItem : inventory) {
             //DISPLAY the description the required amount and amount in stock
-            System.out.println(inventoryItem.getDescription() + "\t" +
+            this.console.println(inventoryItem.getDescription() + "\t" +
                                inventoryItem.getType() );
         }
     }

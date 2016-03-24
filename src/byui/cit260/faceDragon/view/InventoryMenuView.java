@@ -42,25 +42,25 @@ public class InventoryMenuView extends View {
                 this.displayEnergy();
                 break;
             default:
-                System.out.println("\n *** Invalid Selection *** Try Again ***");
+                this.console.println("\n *** Invalid Selection *** Try Again ***");
                 break;
         }
         return false;
     }
 
     private void displayWeapon() {
-        System.out.println("**** displayWeapon() function called");
+        this.console.println("**** displayWeapon() function called");
     }
 
     private void displayResources() {
-        System.out.println("**** displayResources() function called");
+        this.console.println("**** displayResources() function called");
     }
 
     private void displayItems() {
-        System.out.println("**** displayItems() function called");
+        this.console.println("**** displayItems() function called");
     }
 
     private void displayEnergy() {
-        System.out.println("**** displayEnergy() function called");
+        this.console.println("**** displayEnergy() function called");
     }
 }
