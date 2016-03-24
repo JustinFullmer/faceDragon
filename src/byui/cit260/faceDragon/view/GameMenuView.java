@@ -41,6 +41,7 @@ public class GameMenuView extends View {
                 +"\nB - Mountain Exploration View"
                 +"\nQ - Quit to Main Menu"
                 +"\nZ - Swap List"
+                +"\nF - Print Scenes List"
                 +"\n----------------------");
     }      
     @Override
@@ -56,6 +57,9 @@ public class GameMenuView extends View {
                 break;
             case "M":
                 this.moveLocation();
+                break;
+            case "F":
+                this.printScenes();
                 break;
             case "V":
                 this.viewMap();
@@ -177,5 +181,19 @@ public class GameMenuView extends View {
     private InventoryItems[] sortItems() throws GameControlException {
         InventoryItems[] items = GameControl.sortItems(FaceDragon.getCurrentGame().getInventoryItems());
         return items;
+    }
+
+    private void printScenes() {
+        this.console.println("Print Scenes list stub function called");
+        //prompt the user for a file path of where the report is to be printed
+        //get the file path entered by the end user
+        //call another view layer finction that actually prints the report 
+        //*** Must use character output stream write to file and use a for statement
+        //***to go through the list of items to be displayed. The report must include
+        //*** a title, column headings and at least two collumns of data for each 
+        //** item in the list.
+        // display a success message to the console of the report was printed successfully
+        //** to the specified file path
+        //catch all runtime exception thrown during the execution/ call ErrorView.display()
     }
 }
