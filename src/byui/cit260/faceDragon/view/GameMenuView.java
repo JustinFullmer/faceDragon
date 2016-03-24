@@ -184,16 +184,20 @@ public class GameMenuView extends View {
     }
 
     private void printScenes() {
-        this.console.println("Print Scenes list stub function called");
+        //this.console.println("Print Scenes list stub function called");
         //prompt the user for a file path of where the report is to be printed
+        this.console.println("\n\nEnter the file path for the report to be printed."); 
         //get the file path entered by the end user
-        //call another view layer finction that actually prints the report 
-        //*** Must use character output stream write to file and use a for statement
-        //***to go through the list of items to be displayed. The report must include
-        //*** a title, column headings and at least two collumns of data for each 
-        //** item in the list.
+        String filePath = this.getInput();
+        try {
+            //call another view layer function that actually prints the report
+            GameControl.getPrintScenes(filePath);
+        } catch (Exception ex) {
+            //catch all runtime exception thrown during the execution/ call ErrorView.display()
+            ErrorView.display("MainMenuView", ex.getMessage());
+        }
+        
         // display a success message to the console of the report was printed successfully
         //** to the specified file path
-        //catch all runtime exception thrown during the execution/ call ErrorView.display()
     }
 }
