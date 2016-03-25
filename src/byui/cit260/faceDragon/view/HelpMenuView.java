@@ -81,6 +81,6 @@ public class HelpMenuView extends View{
                 out.printf("%n%-20s%7d",characters.name(), characters.getCurrentLocation());
             
         }catch (IOException ex){
-            ErrorView.display(this.getClass().getName(), )
+            ErrorView.display(, )
         }
     }

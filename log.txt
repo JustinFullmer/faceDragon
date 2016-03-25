@@ -1,0 +1,3 @@
+FaceDragon - Exception: java.lang.NoClassDefFoundError: byui/cit260/faceDragon/view/MainMenuView
+Cause: java.lang.ClassNotFoundException: byui.cit260.faceDragon.view.MainMenuView
+Message: byui/cit260/faceDragon/view/MainMenuView
