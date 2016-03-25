@@ -5,6 +5,7 @@
  */
 package byui.cit260.faceDragon.view;
 
+import byui.cit260.faceDragon.control.GameControl;
 import java.util.Scanner;
 
 /**
@@ -19,6 +20,7 @@ public class HelpMenuView extends View{
                    +"\n----------------------------------"
                    +"\nG - What is the goal of the game?"
                    +"\nC - What are the in game controls?"
+                   +"\nR - Print Report"
                    +"\nQ - Quit to main menu"
                    +"\n----------------------------------");
     }
@@ -32,6 +34,9 @@ public class HelpMenuView extends View{
                 break;
             case "C":
                 this.gameControls();
+                break;
+            case "R":
+                this.printReport();
                 break;
             case "Q":
                 this.mainMenu();
@@ -57,4 +62,25 @@ public class HelpMenuView extends View{
         mainMenuView.display();
         
     }
-}
+
+    private void printReport() {
+        this.console.println("\n\nEnter the file path for the file where the report is to be saved."); 
+        String filePath = this.getInput();
+        try{
+            
+        }
+        }
+    
+    public void printCharactersReport(enum Characters, String outputLocation){
+        try(PrintWriter out = new PrintWriter(filePath)){
+            out.println("\n\n       Characters          ");
+            out.printf("%n%-20s%10s","Name","Location");
+            out.printf("%n%-20s%10s","-----------","---------");
+            Characters[] characters = Characters.values();
+            for(Characters character = characters){
+                out.printf("%n%-20s%7d",characters.name(), characters.getCurrentLocation());
+            
+        }catch (IOException ex){
+            ErrorView.display(this.getClass().getName(), )
+        }
+    }

@@ -190,4 +190,16 @@ public class GameControl {
         list[correctPosition] = temp;
         return 1;
     }
+    /*public void printCharactersReport(enum Characters, String outputLocation){
+        try(PrintWriter out = new PrintWriter(outputLocation)){
+            out.println("\n\n       Characters          ");
+            out.printf("%n%-20s%10s","Description","Location");
+            out.printf("%n%-20s%10s","-----------","---------");
+            for(Characters characters = character){
+                out.printf("%n%-20s%7d",characters.getDescription(), characters.getCurrentLocation());
+            }
+        }catch (IOException ex){
+            ErrorView.display(this.getClass().getName(), )
+        }
+    }*/
 }

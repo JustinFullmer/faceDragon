@@ -23,7 +23,7 @@ public enum Characters implements Serializable {
     BlackKnight("Cruelest of Enemies.", 50, 0, new Point(3, 2), new Point(3, 2)),
     EvilWizard("Dressed in black robes, with an evil smile.", 40, 0, new Point(3, 4), new Point(3, 4)),
     Goblins("Green, Foul, and Rude", 10, 0, new Point(4, 0), new Point(4, 0)),
-    Dragon("Giant, Fire Brething, with teeth like razors.", 100, 0, new Point(4, 4), new Point(4, 4));
+    Dragon("Giant, Fire Breathing, with teeth like razors.", 100, 0, new Point(4, 4), new Point(4, 4));
 
     private final String description;
     private final double strength;
