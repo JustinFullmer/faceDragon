@@ -91,6 +91,14 @@ public class GameControl {
         FaceDragon.setCurrentGame(game); //save in FaceDragon
     }
 
+    public static void getPrintScenes(String filePath) 
+                            throws GameControlException{
+        //*** Must use character output stream write to file and use a for statement
+        //***to go through the list of items to be displayed. The report must include
+        //*** a title, column headings and at least two collumns of data for each 
+        //** item in the list.
+    }
+
     public enum Item {
         excaliber,
         armor,

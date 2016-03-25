@@ -69,7 +69,7 @@ public class MainMenuView extends View{
         } catch (Exception ex) {
             ErrorView.display("MainMenuView", ex.getMessage());
         }
-        this.console.println("\n ***savedGame function called***");    
+        //this.console.println("\n ***savedGame function called***");    
     }
 
     private void restartGame() {
@@ -88,7 +88,7 @@ public class MainMenuView extends View{
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
         
-        this.console.println("\n ***restartGame function called***");    
+        //this.console.println("\n ***restartGame function called***");    
     }
 
     private void helpMenu() {
