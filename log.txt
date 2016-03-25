@@ -1,4 +1,0 @@
-byui.cit260.faceDragon.view.StartProgramView - 
-Invalid value: value cannot be blank
-byui.cit260.faceDragon.view.StartProgramView - 
-Invalid value: value cannot be blank

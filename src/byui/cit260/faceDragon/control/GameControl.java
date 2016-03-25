@@ -19,6 +19,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 /**
@@ -91,13 +92,28 @@ public class GameControl {
         FaceDragon.setCurrentGame(game); //save in FaceDragon
     }
 
-    public static void getPrintScenes(String filePath) 
-                            throws GameControlException{
-        //*** Must use character output stream write to file and use a for statement
-        //***to go through the list of items to be displayed. The report must include
-        //*** a title, column headings and at least two collumns of data for each 
-        //** item in the list.
-    }
+//    public static void getPrintScenes(String filePath) 
+//                            throws GameControlException{
+//        //*** Must use character output stream write to file and use a for statement
+//        //***to go through the list of items to be displayed. The report must include
+//        //*** a title, column headings and at least two collumns of data for each 
+//        //** item in the list.
+//        try (PrintWriter out = new PrintWriter(outputLocation)) {
+//           
+//        //print title and column headings
+//        out.println("\n\n                Scenes                      ");
+//        out.printf("%n%-20s%20s", "Description", "Coordinates");
+//        out.printf("%n%-20s%20s", "____________", "____________");
+//        
+//        //print the description and coordinates of each scene
+//        for (Scene scene : Scene){
+//            out.printf("%n%-20s%7d", scene.getScene()
+//                                    , scene.getLocation());
+//        }
+//        }catch (IOException ex) {
+//            this.console.println("I/O Error: " + ex.getMessage());
+//        }
+//    }
 
     public enum Item {
         excaliber,
