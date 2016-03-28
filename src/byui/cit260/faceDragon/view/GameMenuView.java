@@ -11,7 +11,10 @@ import byui.cit260.faceDragon.model.Game;
 import byui.cit260.faceDragon.model.InventoryItems;
 import byui.cit260.faceDragon.model.Location;
 import byui.cit260.faceDragon.model.Map;
+import byui.cit260.faceDragon.model.Scene;
 import facedragon.FaceDragon;
+import java.io.IOException;
+import java.io.PrintWriter;
 import static java.util.Collections.list;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -184,20 +187,7 @@ public class GameMenuView extends View {
     }
 
     private void printScenes() {
-        //this.console.println("Print Scenes list stub function called");
-        //prompt the user for a file path of where the report is to be printed
-        this.console.println("\n\nEnter the file path for the report to be printed."); 
-        //get the file path entered by the end user
-        String filePath = this.getInput();
-        try {
-            //call another view layer function that actually prints the report
-            GameControl.getPrintScenes(filePath);
-        } catch (Exception ex) {
-            //catch all runtime exception thrown during the execution/ call ErrorView.display()
-            ErrorView.display("MainMenuView", ex.getMessage());
-        }
-        
-        // display a success message to the console of the report was printed successfully
-        //** to the specified file path
+        new PrintScenesView().display();
     }
+
 }
