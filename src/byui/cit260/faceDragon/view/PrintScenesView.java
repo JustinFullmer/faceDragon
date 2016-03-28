@@ -52,8 +52,8 @@ public class PrintScenesView extends View {
            
         //print title and column headings
         out.println("\n\n                Scenes                      ");
-        out.printf("%n%-20s%20s", "Name", "Coordinates");
-        out.printf("%n%-20s%20s", "____________", "____________");
+        out.printf("%n%-20s%12s", "Name", "Coordinates");
+        out.printf("%n%-20s%12s", "____________", "____________");
         //turn scene enum into array
         Scene[] scenes = Scene.values();
         //print the description and coordinates of each scene
