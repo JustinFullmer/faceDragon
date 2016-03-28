@@ -1,3 +1,7 @@
-FaceDragon - Exception: java.lang.NoClassDefFoundError: byui/cit260/faceDragon/view/MainMenuView
-Cause: java.lang.ClassNotFoundException: byui.cit260.faceDragon.view.MainMenuView
-Message: byui/cit260/faceDragon/view/MainMenuView
+byui.cit260.faceDragon.view.StartProgramView - 
+Invalid value: value cannot be blank
+byui.cit260.faceDragon.view.GameMenuView - 
+Invalid value: value cannot be blank
+FaceDragon - Exception: java.lang.NullPointerException
+Cause: null
+Message: null

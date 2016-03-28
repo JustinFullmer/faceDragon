@@ -7,7 +7,6 @@ package byui.cit260.faceDragon.view;
 
 import byui.cit260.faceDragon.control.GameControl;
 import facedragon.FaceDragon;
-import java.util.Scanner;
 
 /**
  *

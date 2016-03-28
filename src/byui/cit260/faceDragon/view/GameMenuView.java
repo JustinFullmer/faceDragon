@@ -93,7 +93,7 @@ public class GameMenuView extends View {
             try {
                 this.sortItems();
             } catch (GameControlException ex) {
-                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                ErrorView.display(this.getClass().getName(), ex.getMessage());
             }
         }
                 break;
