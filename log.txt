@@ -1,7 +1,0 @@
-byui.cit260.faceDragon.view.StartProgramView - 
-Invalid value: value cannot be blank
-byui.cit260.faceDragon.view.GameMenuView - 
-Invalid value: value cannot be blank
-FaceDragon - Exception: java.lang.NullPointerException
-Cause: null
-Message: null

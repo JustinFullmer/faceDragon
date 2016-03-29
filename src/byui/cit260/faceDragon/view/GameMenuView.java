@@ -119,18 +119,18 @@ public class GameMenuView extends View {
         Location [][] locations = FaceDragon.getCurrentGame().getMap().getLocation();
         double rowCount = FaceDragon.getCurrentGame().getMap().getRowCount();
         double columnCount = FaceDragon.getCurrentGame().getMap().getColumnCount();
-        this.console.println("Map");
+        this.console.print("Map");
         for(int r=0; r<5; r++){
-            this.console.println("-");
+            this.console.println("--------------");
             this.console.println(r);
             for(int c=0; c<5; c++){
-                this.console.println("|");
-                this.console.println(c);
+                this.console.print("|");
+                this.console.print(c);
                 if(locations[r][c].getVisited()){
-                    this.console.println("~~");                
-               }this.console.println("??");
+                    this.console.print("~~");                
+               }this.console.print("??");
             }this.console.println("|");
-        }this.console.println("-");
+        }this.console.print("-------------------");
         
     }
 
