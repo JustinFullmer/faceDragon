@@ -76,10 +76,12 @@ public class MovingLocationsView extends View{
         this.console.println("\n ***west function called***");    
     }
     private void farm() {
-        this.console.println("\n ***farm function called***");    
+        FarmView farmView = new FarmView();
+        farmView.display();  
     }
     private void town() {
-        this.console.println("\n ***town function called***");    
+        VillageView villageView = new VillageView();
+        villageView.display();   
     }
     private void savedLocations() {
         FairiesEncounterView fairiesEncounterView = new FairiesEncounterView();
