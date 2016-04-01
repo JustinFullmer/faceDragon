@@ -45,6 +45,8 @@ public class GameMenuView extends View {
                 +"\nQ - Quit to Main Menu"
                 +"\nZ - Swap List"
                 +"\nF - Print Scenes List"
+                +"\nG - Encounter Helpful Wizard"
+                +"\nJ - Lake Exploration"
                 +"\n----------------------");
     }      
     @Override
@@ -87,6 +89,12 @@ public class GameMenuView extends View {
                 break;
             case "B":
                 this.exploreMountain();
+                break;
+            case "G":
+                this.helpfulWizard();
+                break;
+            case "J":
+                this.lakeExploration();
                 break;
             case "Z":
         {
@@ -188,6 +196,15 @@ public class GameMenuView extends View {
 
     private void printScenes() {
         new PrintScenesView().display();
+    }
+        private void helpfulWizard() {
+        EncounterHelpfulWizard encounterHelpfulWizard = new EncounterHelpfulWizard();
+        encounterHelpfulWizard.display();
+    }
+
+    private void lakeExploration() {
+        LakeExplorationView lakeExplorationView = new LakeExplorationView();
+        lakeExplorationView.display();
     }
 
 }
