@@ -20,6 +20,7 @@ public class Player implements Serializable{
     private String age;
     private double experience;
     private double energy;
+    private double money;
     
     private Game[] game;
     private Characters characters;
@@ -70,6 +71,15 @@ public class Player implements Serializable{
     public void setGame(Game[] game) {
         this.game = game;
     }
+
+    public double getMoney() {
+        return money;
+    }
+
+    public void setMoney(double money) {
+        this.money = money;
+    }
+    
 
     @Override
     public int hashCode() {

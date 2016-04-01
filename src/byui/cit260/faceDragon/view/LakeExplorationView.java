@@ -29,7 +29,7 @@ public class LakeExplorationView extends View {
 
     @Override
     public boolean doAction(String playersAnswer) {
-                    //this is temporary.. in order to test function
+        //this is temporary.. in order to test function
         Player player = new Player();
         player.setName("Bree");
         try {

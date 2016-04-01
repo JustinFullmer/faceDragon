@@ -47,6 +47,8 @@ public class GameMenuView extends View {
                 +"\nF - Print Scenes List"
                 +"\nG - Encounter Helpful Wizard"
                 +"\nJ - Lake Exploration"
+                +"\nK - Farm"
+                +"\nL - Village"
                 +"\n----------------------");
     }      
     @Override
@@ -95,6 +97,12 @@ public class GameMenuView extends View {
                 break;
             case "J":
                 this.lakeExploration();
+                break;
+            case "K":
+                this.farmView();
+                break;
+            case "L":
+                this.villageView();
                 break;
             case "Z":
         {
@@ -205,6 +213,16 @@ public class GameMenuView extends View {
     private void lakeExploration() {
         LakeExplorationView lakeExplorationView = new LakeExplorationView();
         lakeExplorationView.display();
+    }
+
+    private void farmView() {
+        FarmView farmView = new FarmView();
+        farmView.display();
+    }
+
+    private void villageView() {
+        VillageView villageView = new VillageView();
+        villageView.display();
     }
 
 }
